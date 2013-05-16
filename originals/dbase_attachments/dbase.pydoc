@@ -1,0 +1,195 @@
+Help on module dbase:
+
+NAME
+    dbase
+
+FILE
+    dbase.py
+
+CLASSES
+    dbase
+    
+    class dbase
+     |  TODO:
+     |          - Check if shelve loading/saving works
+     |          - Only tested on Mac OS X 10.4.8, with pytz
+     |  
+     |  DOC:
+     |  A simple data-frame, that reads and writes csv/pickle/shelve files with variable names.
+     |  Data is stored in a dictionary. 
+     |  
+     |  To use the class:
+     |  
+     |          >>> from dbase import dbase
+     |          >>> y = dbase('your_filename.csv')
+     |  
+     |  or for a previously created dbase object stored in a pickle file
+     |  
+     |          >>> from dbase import dbase
+     |          >>> y = dbase('your_filename.pickle')
+     |  
+     |          or without importing the dbase class
+     |  
+     |          >>> import cPickle 
+     |          >>> f = open('your_filename.pickle','rb')
+     |          >>> y = cPickle.load(f)
+     |          >>> data_key = cPickle.load(f)
+     |          >>> f.close()
+     |  
+     |  or for a dictionary stored in a shelf file
+     |  
+     |          >>> from dbase import dbase
+     |          >>> y = dbase('your_filename.pickle')
+     |  
+     |  To return a list of variable names and an array of data
+     |  
+     |          >>> varnm, data = y.get()
+     |  
+     |  For usage examples of other class methods see the class tests at the bottom of this file. To see the class in action
+     |  simply run the file using 'python dbase.py'. This will generate some simulated data (data.csv) and save instance data
+     |  of the class to a pickle file.
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, fname, *var, **date)
+     |      Initializing the dbase class. Loading file fname.
+     |      
+     |      If you have have a column in your csv file that is a date-string use:
+     |      
+     |              >>> x = dbase('myfile.csv',date = 0)
+     |      
+     |      where 0 is the index of the date column
+     |      
+     |      If you have have an array in your pickle file that is a date variable use:
+     |      
+     |              >>> x = dbase('myfile.pickle',date = 'date')
+     |      
+     |      where 'date' is the key of the date array
+     |  
+     |  add_dummy(self, dum, dname='dummy')
+     |  
+     |  add_seasonal_dummies(self, freq=52, ndum=13)
+     |      This function will only work if the freq and ndum 'fit. That is,
+     |      weeks and 4-weekly periods will work. Weeks and months/quarters
+     |      will not.
+     |  
+     |  add_trend(self, tname='trend')
+     |  
+     |  dataplot(self, *var, **adict)
+     |      Plotting the data with variable names
+     |  
+     |  delobs(self, sel)
+     |      Deleting specified observations, changing dictionary in place
+     |  
+     |  delobs_copy(self, sel)
+     |      Deleting specified observations, making a copy
+     |  
+     |  delvar(self, *var)
+     |      Deleting specified variables in the data dictionary, changing dictionary in place
+     |  
+     |  delvar_copy(self, *var)
+     |      Deleting specified variables in the data dictionary, making a copy
+     |  
+     |  get(self, *var, **sel)
+     |      Copying data and keys of selected variables for further analysis
+     |  
+     |  info(self, *var, **adict)
+     |      Printing descriptive statistics on selected variables
+     |  
+     |  keepobs(self, sel)
+     |      Keeping specified observations, changing dictionary in place
+     |  
+     |  keepobs_copy(self, sel)
+     |      Keeping specified observations, making a copy
+     |  
+     |  keepvar(self, *var)
+     |      Keeping specified variables in the data dictionary, changing dictionary in place
+     |  
+     |  keepvar_copy(self, *var)
+     |      Keeping specified variables in the data dictionary, making a copy
+     |  
+     |  load(self, fname, var, date)
+     |      Loading data from a csv or a pickle file of the dbase class.
+     |      If this is csv file use pylab's load function. Seems much faster
+     |      than scipy.io.read_array.
+     |  
+     |  load_csv(self, f)
+     |      Loading data from a csv file. Uses pylab's load function. Seems much faster
+     |      than scipy.io.read_array.
+     |  
+     |  load_pickle(self, f)
+     |      Loading data from a created earlier using the the dbase class.
+     |  
+     |  load_shelve(self, fname, var)
+     |      Loading data from a created earlier using the the dbase class.
+     |  
+     |  save(self, fname)
+     |      Dumping the class data dictionary into a csv or pickle file
+     |  
+     |  save_csv(self, f)
+     |      Dumping the class data dictionary into a csv file
+     |  
+     |  save_pickle(self, f)
+     |      Dumping the class data dictionary and date_key into a binary pickle file
+     |  
+     |  save_shelve(self, fname)
+     |      Dumping the class data dictionary into a shelve file
+
+FUNCTIONS
+    arange(...)
+        arange([start,] stop[, step,], dtype=None)
+        
+        For integer arguments, just like range() except it returns an array
+        whose type can be specified by the keyword argument dtype.  If dtype
+        is not specified, the type of the result is deduced from the type of
+        the arguments.
+        
+        For floating point arguments, the length of the result is ceil((stop -
+        start)/step).  This rule may result in the last element of the result
+        being greater than stop.
+    
+    array(...)
+        array(object, dtype=None, copy=1,order=None, subok=0,ndmin=0)
+        
+        Return an array from object with the specified date-type.
+        
+        Inputs:
+          object - an array, any object exposing the array interface, any
+                    object whose __array__ method returns an array, or any
+                    (nested) sequence.
+          dtype  - The desired data-type for the array.  If not given, then
+                    the type will be determined as the minimum type required
+                    to hold the objects in the sequence.  This argument can only
+                    be used to 'upcast' the array.  For downcasting, use the
+                    .astype(t) method.
+          copy   - If true, then force a copy.  Otherwise a copy will only occur
+                    if __array__ returns a copy, obj is a nested sequence, or
+                    a copy is needed to satisfy any of the other requirements
+          order  - Specify the order of the array.  If order is 'C', then the
+                    array will be in C-contiguous order (last-index varies the
+                    fastest).  If order is 'FORTRAN', then the returned array
+                    will be in Fortran-contiguous order (first-index varies the
+                    fastest).  If order is None, then the returned array may
+                    be in either C-, or Fortran-contiguous order or even
+                    discontiguous.
+          subok  - If True, then sub-classes will be passed-through, otherwise
+                    the returned array will be forced to be a base-class array
+          ndmin  - Specifies the minimum number of dimensions that the resulting
+                    array should have.  1's will be pre-pended to the shape as
+                    needed to meet this requirement.
+    
+    randn(...)
+        Returns zero-mean, unit-variance Gaussian random numbers in an 
+        array of shape (d0, d1, ..., dn).
+        
+        randn(d0, d1, ..., dn) -> random values
+        
+        Note:  This is a convenience function. If you want an
+                    interface that takes a tuple as the first argument
+                    use numpy.random.standard_normal(shape_tuple).
+
+DATA
+    c_ = <numpy.lib.index_tricks.c_class object at 0x1186550>
+    division = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192...
+
+

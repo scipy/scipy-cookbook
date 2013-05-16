@@ -1,0 +1,1 @@
+#redirect Cookbook/A_Numerical_Agnostic_Pyrex_Class

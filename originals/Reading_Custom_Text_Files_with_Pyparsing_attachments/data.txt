@@ -1,0 +1,28 @@
+# This is is an example file structured in section
+# with comments begining with '#'
+
+[ INFOS ]
+Debug          = False
+Shape  (mm^-1) = 2.3                                                            # here is a unit
+Length (mm)    = 25361.15
+Path 1         = C:\\This\is\a\long\path\with some space in it\data.txt
+description    = raw values can have multiple lines, but additional lines must start
+                 with a whitespace which is automatically skipped
+Parent         = None
+
+[ TABLE IN ROWS ]
+Temp    (C)             100             200        300       450.0        600
+E XX    (GPa)           159.4       16.9E+0       51.8      .15E02        4     # Here is a space in the row name
+Words               'hundred'   'two hundreds'  'a lot'     'four'      'five'  # Here are QuotedStrings with space
+
+[ TABLE IN COLUMNS ] 
+STATION         PRECIPITATION   T_MAX_ABS  T_MIN_ABS 
+(/)                     (mm)    (C)        (C)       # Columns must have a unit
+Ajaccio                 64.8    18.8E+0    -2.6      
+Auxerre                 49.6    16.9E+0    Nan       # Here is a Nan
+Bastia                  114.2   20.8E+0    -0.9      
+[ MATRIX ]
+True    2       3
+4.      5.      6.
+7.      nan     8
+
