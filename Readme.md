@@ -19,5 +19,8 @@ The folders contain various stages of conversion:
     that the code is not run so Pweave just formats code for Sphinx
     documents. ~30% of the examples can be run with Pweave to produce
     meaningful output with captured figures and code.
+    
+* **Ipython** Cookbook pages converted to IPython notebook script format, these
+    can be directly imported to IPython notebooks.
 
 You can see the result of conversion in [here](http://mpastell.github.io)
