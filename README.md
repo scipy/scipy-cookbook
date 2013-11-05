@@ -11,18 +11,24 @@ Give a hand
 Your help is both needed and appreciated. The quick way to get started is to
 fork this repo, and then do
 
-    git clone git@github.com:YOURUSERNAME/SciPy-CookBook.git scipycookbook
-    cd scipycookbook
-    ipython notebook
+    git clone git@github.com:YOURUSERNAME/SciPy-CookBook.git
+    git remote add upstream https://github.com/pv/SciPy-CookBook.git
+    cd SciPy-CookBook/ipython
 
-and then
+and then switch to a new branch
 
     git checkout -b edit-xxx
+    git fetch upstream
+    git reset --hard upstream/master
+
+after which
+
+    ipython notebook
     # edit notebook XXX in ipython web notebook and save
     git commit -m "Fix up notebook XXX" -a
     git push origin edit-xxx
 
-and browse to your github repo page and send the fixed version as a pull
+and then browse to your github repo page and send the fixed version as a pull
 request. Thanks!
 
 What to fix
@@ -56,4 +62,7 @@ automated. What needs to be done is:
 
 - If some entry is too incomplete to fix (e.g. math formulas), look at the
   source version at http://wiki.scipy.org/Cookbook/
+
+- And other things. Note, however, that the point is more to fix surface issues
+  than to try to rewrite things in a better way.
 
