@@ -68,6 +68,9 @@ automated. What needs to be done is:
 
 - Remove obviously useless (e.g. empty) files.
 
+- Obviously outdated content should get a short notice on top, with a date
+  of the last update on http://wiki.scipy.org/
+
 - If some entry is too incomplete to fix (e.g. math formulas), look at the
   source version at http://wiki.scipy.org/Cookbook/
 
