@@ -36,6 +36,9 @@ gist.github.com) and file [a new
 issue](https://github.com/pv/SciPy-CookBook/issues) and tell which file you
 changed and include a link to the uploaded file. Thanks!
 
+Before starting, check out the list of pull requests and issues here to avoid
+doing duplicate work.
+
 What to fix
 -----------
 
