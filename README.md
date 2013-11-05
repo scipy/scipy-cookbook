@@ -51,9 +51,9 @@ automated. What needs to be done is:
   the markdown text blocks --- the conversion didn't always treat these
   correctly).
 
-  Local files and images should be linked to via
-  `\[link text\]\(files/attachments/NotebookName/filename\)` and
-  `\!\[\]\(files/attachments/NotebookName/image.png\)`
+  Local files and images should be linked to via standard Markdown syntax
+  `[link text](files/attachments/NotebookName/filename)` and
+  `![](files/attachments/NotebookName/image.png)`
 
 - Ensure each notebook begins with a top-level heading with a title for the
   snippet.  Avoid using other top-level headings in the rest of the notebooks.
