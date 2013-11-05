@@ -29,7 +29,12 @@ after which
     git push origin edit-xxx
 
 and then browse to your github repo page and send the fixed version as a pull
-request. Thanks!
+request.
+
+If you however cannot be arsed to use git, just upload the file somewhere (e.g.
+gist.github.com) and file [a new
+issue](https://github.com/pv/SciPy-CookBook/issues) and tell which file you
+changed and include a link to the uploaded file. Thanks!
 
 What to fix
 -----------
