@@ -8,6 +8,10 @@ Matti Pastell's work: https://github.com/mpastell/SciPy-CookBook
 Give a hand
 -----------
 
+Before starting, check out the list of pull requests and issues here to avoid
+doing duplicate work. You can see which files have been already modified by
+looking at here: https://github.com/pv/SciPy-CookBook/tree/master/ipython
+
 Your help is both needed and appreciated. The quick way to get started is to
 fork this repo, and then do
 
@@ -35,9 +39,6 @@ If you however cannot be arsed to use git, just upload the file somewhere (e.g.
 gist.github.com) and file [a new
 issue](https://github.com/pv/SciPy-CookBook/issues) and tell which file you
 changed and include a link to the uploaded file. Thanks!
-
-Before starting, check out the list of pull requests and issues here to avoid
-doing duplicate work.
 
 What to fix
 -----------
