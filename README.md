@@ -75,6 +75,9 @@ automated. What needs to be done is:
 - If some entry is too incomplete to fix (e.g. math formulas), look at the
   source version at http://wiki.scipy.org/Cookbook/
 
+- Compare against the original wiki version under `original/`. Check if a part of the
+  text at the end is missing.
+
 - And other things. Note, however, that the point is more to fix surface issues
   than to try to rewrite things in a better way.
 
