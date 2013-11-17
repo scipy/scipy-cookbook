@@ -16,8 +16,9 @@ Your help is both needed and appreciated. The quick way to get started is to
 fork this repo, and then do
 
     git clone git@github.com:YOURUSERNAME/SciPy-CookBook.git
+    cd SciPy-CookBook
     git remote add upstream https://github.com/pv/SciPy-CookBook.git
-    cd SciPy-CookBook/ipython
+    cd ipython
 
 and then switch to a new branch
 
