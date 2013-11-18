@@ -10,14 +10,18 @@ Give a hand
 
 Before starting, check out the list of pull requests and issues here to avoid
 doing duplicate work. You can see which files have been already modified by
-looking at here: https://github.com/pv/SciPy-CookBook/tree/master/ipython
+looking at here: https://github.com/pv/SciPy-CookBook/tree/master/ipython. It's 
+also worth checking https://github.com/pv/SciPy-CookBook/network to see if 
+there are any in-progress branches uploaded to Github which haven't yet been 
+merged.
 
 Your help is both needed and appreciated. The quick way to get started is to
 fork this repo, and then do
 
     git clone git@github.com:YOURUSERNAME/SciPy-CookBook.git
+    cd SciPy-CookBook
     git remote add upstream https://github.com/pv/SciPy-CookBook.git
-    cd SciPy-CookBook/ipython
+    cd ipython
 
 and then switch to a new branch
 
