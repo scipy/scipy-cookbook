@@ -1,15 +1,26 @@
-from scipy import c_, arange, array, unique, kron, ones, eye
-from numpy.random import randn
 from __future__ import division
+from scipy import c_, arange, array, unique, kron, ones, eye, nan, isnan, string_
+from numpy.random import randn
+from numpy.core.records import recarray
 import pylab, cPickle, shelve, csv, copy, os
 
 class dbase:
 	"""
-	TODO:
-		- Check if shelve loading/saving works
-		- Only tested on Mac OS X 10.4.8, with pytz
+	Author: Vincent Nijs (+ ?)
+	Email: v-nijs at kellogg.northwestern.edu
+	Last Modified: Thu Jan 18 22:32:56 CST 2007
 
-	DOC:
+	Todo:
+		- Check if shelve loading/saving works
+	
+	Tested on:
+		- Works on Mac OS X 10.4.8, with full matplotlib (incl. pytz)
+		- Tested on Linux
+	
+	Dependencies:
+		- See import statement at the top of this file
+
+	Doc:
 	A simple data-frame, that reads and writes csv/pickle/shelve files with variable names.
 	Data is stored in a dictionary. 
 
@@ -45,7 +56,7 @@ class dbase:
 	of the class to a pickle file.
 	"""
 
-	def __init__(self,fname,*var,**date):
+	def __init__(self,fname,var = (),date = ''):
 		"""
 		Initializing the dbase class. Loading file fname.
 
@@ -72,8 +83,8 @@ class dbase:
 		# setting the ascii/csv file name used for input
 		self.DBname = os.getcwd() + '/' + fname
 
-		# assuming self.date_key = None unless otherwise given
-		self.date_key = date.values()
+		# assuming self.date_key = '' unless otherwise given
+		self.date_key = date
 
 		# getting the file extension
 		fext = self.__ext(fname)
@@ -95,6 +106,41 @@ class dbase:
 		# specifying nobs in self.data
 		self.nobs = self.data[self.data.keys()[0]].shape[0]
 
+	def csvconvert(self,col):
+		"""
+		Converting data in a string array to the appropriate type
+		"""
+		# convert missing values to nan
+		col[col == ''] = 'nan'; col[col == '.'] = 'nan'
+		try: 
+			# if a missing value is present int variables will be up-cast to float
+			return col.astype('i')
+		except ValueError: 
+			try: 
+				return col.astype('f')
+			except ValueError: 
+				# if the data is a string, put back the empty string
+				col[col == 'nan'] = ''
+				return col
+
+	def load_csv_nf(self,f):
+		"""
+		Loading data from a csv file using the csv module. Return a list of arrays.
+		Possibly with different types and/or missing values.
+		"""
+		# resetting to the beginning of the file since pylab.load was already tried
+		f.seek(0)
+
+		reader = csv.reader(f)
+
+		# putting the data in an array of strings
+		datalist = array([i for i in reader])
+
+		# converting the data to an appropriate type
+		datalist = [self.csvconvert(datalist[1:,i]) for i in range(datalist.shape[1])]
+
+		return datalist
+
 	def load_csv(self,f):
 		"""
 		Loading data from a csv file. Uses pylab's load function. Seems much faster
@@ -103,17 +149,32 @@ class dbase:
 		varnm = f.readline().split(',')
 
 		# what is the date variable's key if any, based on index passed as argument
-		if self.date_key != []:
-			rawdata = pylab.load(f, delimiter=',',converters={self.date_key[0]:pylab.datestr2num})			# don't need to 'skiprow' here
-			self.date_key = varnm[self.date_key[0]]
+		if self.date_key != '':
+			try:
+				rawdata = pylab.loadtxt(f, delimiter=',',converters={self.date_key:pylab.datestr2num})		# don't need to 'skiprows' here
+			except ValueError:																				# if loading via pylab doesn't work use csv
+				rawdata = self.load_csv_nf(f)	
+
+				# converting the dates column to a date-number
+				rawdata[self.date_key] = pylab.datestr2num(rawdata[self.date_key])
+
+			self.date_key = varnm[self.date_key]
 		else:
-			rawdata = pylab.load(f, delimiter=',')															# don't need to 'skiprow' here
+			try:
+				rawdata = pylab.loadtxt(f, delimiter=',')														# don't need to 'skiprow' here
+			except ValueError:																				# if loading via pylab doesn't work use csv
+				rawdata = self.load_csv_nf(f)	
 
 		# making sure that the variable names contain no leading or trailing spaces
 		varnm = [i.strip() for i in varnm]
 
 		# transforming the data into a dictionary
-		self.data = dict(zip(varnm,rawdata.T))
+		if type(rawdata) == list:
+			# if the csv module was used
+			self.data = dict(zip(varnm,rawdata))
+		else:
+			# if the pylab.load module was used
+			self.data = dict(zip(varnm,rawdata.T))
 
 	def load_pickle(self,f):
 		"""
@@ -122,13 +183,11 @@ class dbase:
 		self.data = cPickle.load(f)					# loading the data dictionary
 
 		# what is the date variable's key if any
-		if self.date_key == []:
+		if self.date_key == '':
 			try:
 				self.date_key = cPickle.load(f)		# if nothing given assume it is in the pickle file
 			except:
 				print "No date series in pickle file"
-		else:
-			self.date_key = self.date_key[0]		# assumes formatting using pylab.datestr2num already applied
 
 	def load_shelve(self,fname,var):
 		"""
@@ -141,9 +200,8 @@ class dbase:
 			var = data.keys()
 
 		# making sure the date variable is fetched from shelve
-		if self.date_key != []:
-			if not self.date_key[0] in var: var = var + self.date_key
-			self.date_key = self.date_key[0]		# assumes formatting using pylab.datestr2num already applied
+		if self.date_key != '':
+			if not self.date_key in var: var = var + list(self.date_key)
 
 		self.data = dict([(i,data[i]) for i in var])
 		data.close()
@@ -315,22 +373,36 @@ class dbase:
 		# number of variables (excluding date if present)
 		nvar = len(var)
 
-		print '\n=============================================================='
-		print '==================== Database information ===================='
-		print '==============================================================\n'
+		print '\n=============================================================================='
+		print '============================ Database information ============================'
+		print '==============================================================================\n'
 
-		print 'file:				%s' % b.DBname
+		print 'file:				%s' % self.DBname
 		print '# obs:				%s' % nobs
 		print '# variables:		%s' % nvar 
-		print "Start date:			%s" % mindate
-		print "End date:			%s" % maxdate
+		print 'Start date:			%s' % mindate
+		print 'End date:			%s' % maxdate
 
-		print '\nvar				min			max			mean		std.dev'
-		print '=============================================================='
+		print '\nvar				min			max			mean		std.dev		miss	levels'
+		print '=============================================================================='
 		
+		sets = {}
 		for i in var:
-			_min = self.data[i][sel].min(); _max = self.data[i][sel].max(); _mean = self.data[i][sel].mean(); _std = self.data[i][sel].std()
-			print '''%-5s			%-5.2f		%-5.2f		%-5.2f		%-5.2f''' % tuple([i,_min,_max,_mean,_std]) 
+			col = self.data[i][sel];
+			if type(col[0]) == string_:
+				_miss = sum(col == '')
+				col_set = set(col)
+				sets[i] = col_set
+				print '''%-5s			%-5s		%-5s		%-5s		%-5s		% -5.0f	%-5i''' % tuple([i,'-','-','-','-',_miss,len(col_set)]) 
+			else:
+				_miss = isnan(col); col = col[_miss == False]; _min = col.min(); _max = col.max(); _mean = col.mean(); _std = col.std()
+				print '''% -5s			% -5.2f		% -5.2f		% -5.2f		% -5.2f		% -5.0f''' % tuple([i,_min,_max,_mean,_std,sum(_miss)]) 
+
+		if sets:
+			print '\n\nLevels for non-numeric data:'
+			for i in sets.keys():
+				print '=============================================================================='
+				print '''% -5s	% -5s''' % tuple([i,sets[i]])
 	
 	def dataplot(self,*var, **adict):
 		"""
@@ -340,15 +412,34 @@ class dbase:
 		var, sel = self.__var_and_sel_clean(var, adict)
 		dates, nobs = self.__dates_and_nobs_clean(var, sel)
 
+		# don't try to plot non-numerical variables
+		nvar = []
 		for i in var:
-			pylab.plot_date(dates,self.data[i][sel],'o-') 
+			col = self.data[i][sel]
+			if type(col[0]) != string_:
+				pylab.plot_date(dates,self.data[i][sel],'o-') 
+				nvar = nvar + [i]
 
 		pylab.xlabel("Time (n = " + str(nobs) + ")") 
 		pylab.title("Data plot of " + self.DBname)
-		pylab.legend(var)
+		pylab.legend(nvar)
 		if adict.has_key('file'):
 			pylab.savefig(adict['file'],dpi=600)
 		pylab.show()
+
+	def to_recarray(self):
+		"""
+		Transform the data dictionary to a recarray or a masked array if missing values
+		are present. Based on input from Pierre GM.
+		"""
+		# First, create the descriptor:
+		descr = [(k,self.data[k].dtype) for k in b.data.keys()]
+		# Then, create an empty record array:
+		ra = recarray((self.nobs,), dtype=descr)
+		# Then fill the recarray:
+		[setattr(ra,n,v) for (n,v) in self.data.iteritems()]
+
+		return ra
 
 	def __var_and_sel_clean(self, var, sel, dates_needed = True):
 		"""
@@ -398,9 +489,9 @@ class dbase:
 
 if __name__ == '__main__':
 
-	########################
-	### Testing dbase class
-	########################
+	###################################
+	### usage examples of dbase class
+	###################################
 
 	import sys
 	from scipy import c_
@@ -410,11 +501,21 @@ if __name__ == '__main__':
 
 	# creating simulated data and variable labels
 	varnm = ['date','a','b','c']			# variable labels
-	nobs = 100
+	nobs = 100 
 	data =	randn(nobs,3)					# the data array
 	dates = pylab.num2date(arange(730493,730493+(nobs*7),7))
 	dates = [i.strftime('%d %b %y') for i in dates]
 	data = c_[dates,data]
+
+	# adding a few missing values
+	data[5,1] = ''
+	data[9,3] = ''
+
+	# adding a non-numeric variable
+	varnm = varnm + ['id']		# variable labels
+	id = [('id'+str(i)) for i in range(nobs)]
+	id[8] = ''		# setting one id to missing
+	data = c_[data,id]
 
 	# saving simulated data to a csv file
 	f = open('./dbase_test_files/data.csv','w')
@@ -425,6 +526,7 @@ if __name__ == '__main__':
 
 	# loading the data from the csv file
 	a = dbase("./dbase_test_files/data.csv",date = 0)
+
 	# saving the dbase instance data to a pickle file
 	a.save("./dbase_test_files/data.pickle")
 	# saving the dbase data to a shelve file
@@ -444,6 +546,13 @@ if __name__ == '__main__':
 	# loading the object from the pickle file
 	print "\nLoading the dbase object from a pickle file\n"
 	b = dbase("./dbase_test_files/data.pickle")
+
+	# transforming the data dictionary to a rec-array
+	ra = b.to_recarray()
+
+	print '\nLables (+ type) in newly created recarray', ra.dtype
+	print '\nData for column "a"', ra.a
+	print '\nData for first 10 rows, for column "a"', ra['a'][:10]
 
 	# getting the name of the file you are working on
 	print "\nWorking on file: " + b.DBname
@@ -524,17 +633,17 @@ if __name__ == '__main__':
 	b.dataplot(file = './dbase_test_files/full_plot.png')
 
 	# adding a trend component
-	b.add_trend('mytrend')			# or b.data.update({'mytrend':range(100)})
+	b.add_trend('mytrend')				# or b.data.update({'mytrend':range(100)})
 
 	# adding a dummy
 	dummy_rule = b.data['a'] > 0
-	b.add_dummy(dummy_rule,'mydummy')			# or b.data.update({'mydummy':dummy_rule})
+	b.add_dummy(dummy_rule,'mydummy')	# or b.data.update({'mydummy':dummy_rule})
 
-	# add seasonal dummies
+	# add seasonal dummies, specify data frequency and # of dummies
 	b.add_seasonal_dummies(52,13)
 
-	# descriptive information on the database for selected time period
-	b.info('b','c', sel = sel_rule)
+	# descriptive information on the database for selected variables and time periods
+	b.info('b','c','mydummy', sel = sel_rule)
 
-	# plotting series
-	b.dataplot('b','c', sel = sel_rule, file = './dbase_test_files/partial_plot.png')
+	# plotting series for selected variables and selected data periods
+	b.dataplot('b','c','mydummy', sel = sel_rule, file = './dbase_test_files/partial_plot.png')
