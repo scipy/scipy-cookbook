@@ -1,0 +1,280 @@
+This is a legacy file for providing tags for the notebooks, based on
+the sections they were categorized in the wiki.
+
+It's not meant to be edited. Instead, include tag specifications to
+the cookbook files themselves (see README.md)
+
+
+Tips and tricks
+===============
+
+* [[Cookbook/BuildingArrays|Building Arrays]] Introduction to numerical arrays.
+* [[Cookbook/Indexing|Indexing]] Indexing numpy arrays, from simple to complicated.
+* [[Cookbook/MultiDot|Multiplying multiple arguments]] Generalizing `dot(a,b)` to the case of N arguments.
+* [[Cookbook/SegmentAxis|Segment axis]] Devious trick using strides to allow general operations (like convolution) on successive, overlapping pieces of an array
+* [[Cookbook/GameOfLifeStrides|Stride tricks for the Game of Life]] This is similar to [[Cookbook/SegmentAxis|Segment axis]], but for 2D arrays with 2D windows.
+* [[Cookbook/MetaArray|MetaArray]] Class for storing per-axis meta [[http://open.salon.com/blog/smebs/2011/05/16/marketing_data_box_-_complete_strategy_guide_for_smbs|data]] information with an array (axis names, column names, units, etc.)
+* [[Cookbook/Obarray|Obarray]] Trick for avoiding object arrays when dealing with arrays of objects.
+* [[Cookbook/Recarray|Recarray]] Accessing array columns with structured arrays and recarrays.
+* [[Cookbook/AccumarrayLike|accumarray-like function]] A function that behaves like MATLAB's accumarray.
+
+Linear Algebra
+==============
+
+* [[Cookbook/RankNullspace|Rank and nullspace]] of a matrix.
+
+Interpolation
+=============
+
+* [[Cookbook/Interpolation|Interpolation]] Examples of interpolation (see also [[Cookbook/Matplotlib/Gridding_irregularly_spaced_data|Gridding irregularly spaced data]]).
+* [[Cookbook/RadialBasisFunctions|Radial Basis Functions]] Using radial basis functions for smoothing/interpolation
+
+Optimization and fitting techniques
+===================================
+
+* [[Cookbook/OptimizationDemo1|Optimization]] Quick example of fminbound with plot.
+* [[Cookbook/OptimizationAndFitDemo1|Optimization with fit]] Similar to above with spline fit and chaco plot.
+* [[Cookbook/FittingData|Fitting Data]] Day to day work in the lab: fitting experimental data.
+* [[Cookbook/LinearRegression|Linear regression]] Simple Linear regression example.
+* [[Cookbook/OLS|Fit statistics]] Estimates a multi-variate regression model and provides various fit statistics.
+* [[Cookbook/Least_Squares_Circle|Least Squares Circle]] Fitting the least squares circle from a series of 2D points
+* [[Cookbook/RANSAC|RANSAC algorithm]] Implementation of the robust estimation method.
+
+Ordinary differential equations
+===============================
+
+* [[Cookbook/Zombie_Apocalypse_ODEINT|Zombie Apocalypse ODE Modeling]] Modeling a Zombie Apocalypse by solving a system of ordinary differential equations using the SciPy routine, ''odeint''.
+* [[Cookbook/CoupledSpringMassSystem|A coupled spring-mass system]] Another example of solving differential equations.
+* [[LoktaVolterraTutorial|Lotka-Volterra Tutorial]] Solving ordinary differential equations with Scipy
+* [[Cookbook/KdV|KdV]] Solving the Korteweg-deVries equation on a periodic domain using the pseudo-spectral method with the method of lines.
+* [[Cookbook/Theoretical_Ecology/Hastings_and_Powell|Hastings and Powell food chain model]]
+
+Root finding
+============
+
+* [[Cookbook/SphericalBesselZeros|Spherical Bessel Zeros]] Finding the zeros of the spherical Bessel functions and its derivative
+* [[Cookbook/Intersection|Intersection of functions]] Compute the points at which two given functions intersect.
+
+Other examples
+==============
+
+* [[Cookbook/Rebinning|Data rebinning]] Examples of rebinning data to produce smaller arrays with and without interpolation.
+* [[Cookbook/Histograms|Histograms]] 2D histograms with variable bin width
+* [[Cookbook/Finding_Convex_Hull|Convex Hull]] Finds the convex hull around a set of data points.
+* [[Cookbook/Finding_Convex_Hull_Minimum_Point|Minimum Point of a Convex Hull]] Finds the minimum point of the convex hull of a finite set of points.
+* [[Cookbook/KalmanFiltering|Kalman Filtering]] Example from the Welch & Bishop [[http://www.cs.unc.edu/~welch/kalman/kalmanIntro.html|Introduction to the Kalman Filter]].
+* [[Cookbook/CommTheory|Comm Theory]] Example of BPSK simulation.
+* [[Cookbook/SignalSmooth|Smoothing a signal]] Performing smoothing of 1D and 2D signals by convolving them with a window.
+* [[Cookbook/ButterworthBandpass|Butterworth Bandpass Filter]] Create and apply a Butterworth bandpass filter.
+* [[Cookbook/FIRFilter|FIR Filter Design]] Design a low-pass FIR filter using the window method.
+* [[Cookbook/ApplyFIRFilter|How to apply a FIR filter:]] signal.convolve, signal.fftconvolve, ndimage.convolve1d or signal.lfilter?
+* [[Cookbook/FiltFilt|A zero phase delay filter]] Sample code for a null phase delay filter that processes the signal in the forward and backward direction removing the phase delay.
+* [[Cookbook/SavitzkyGolay|Savitzky Golay filtering of data]] Sample code for Savitzky Golay filtering.
+* [[Cookbook/FrequencySweptDemo|Frequency-swept signals]] Generating frequency-swept signals with chirp() and sweep_poly() from scipy.signal (SciPy 0.8)
+* [[Cookbook/Multithreading|Multithreading]] Easy multithreading for embarrassingly parallel problems
+* [[Cookbook/KDTree_example|KDTree]] Searching multidimensional space using kd-trees.
+* [[Cookbook/ParticleFilter|Particle Filter]] A simple particle filter algorithm for tracking objects in a video sequence.
+* [[Cookbook/BrownianMotion|Brownian Motion]] Compute Brownian motion (i.e. the Wiener process).
+* [[Cookbook/CorrelatedRandomSamples|Correlated Random Samples]] Generate correlated normally distributed random samples.
+* [[Cookbook/Solving_Large_Markov_Chains|Large Markov Chains]] Find the stationary distribution of a large Markov chain; the M/M/1 tandem queue
+* [[Cookbook/Watershed|Watershed algorithm]] Apply the watershed algorithm in order to split an array into distinct components (e.g. for the segmentation of an image into objects).
+* [[Cookbook/LinearClassification|Linear Classification]] Fisher's discriminant function and Probabilistic Generative model
+* [[Cookbook/EyeDiagram| Plot an eye diagram]] using numpy and matplotlib.
+
+Advanced topics
+===============
+
+* [[Cookbook/ViewsVsCopies|Views vs Copies]] A quick introduction to array views and some caveats on situations where you should expect a [[http://open.salon.com/blog/smebs/2011/05/16/marketing_data_box_-_complete_strategy_guide_for_smbs|data]] view or a data copy.
+
+Compiling Extensions
+====================
+
+* [[Cookbook/CompilingExtensionsOnWindowsWithMinGW|Compiling Extensions on Windows]] A quick tutorial on how to compile extension modules on Windows using MinGW
+
+Scientific Scripts
+===================================
+* [[Cookbook/Theoretical_Ecology|Theoretical Ecology]]
+* [[Cookbook/SchrodingerFDTD|Schrödinger's equation]]: a 1-d FDTD solver that animates the time evolution of a gaussian wave packet interacting with simple potentials.
+
+Input Output
+============
+* [[Cookbook/hdf5_in_Matlab|Loading hdf5 in Matlab]]
+* [[Cookbook/Reading_mat_files|Reading Matlab .mat files]]
+* [[Cookbook/DataFrame|DataFrames]] A useful class for storing alphanumerical data, similar to GNU R's data frames.
+* [[Cookbook/Data_Acquisition_with_PyUL|Data acquisition with PyUniversalLibrary]] A series of examples using an inexpensive USB data acquisition device from Measurement Computing.
+* [[Cookbook/Data_Acquisition_with_NIDAQmx|Data acquisition with Ni-DAQmx]] A simple example of using ctypes and numpy to access data acquisition devices from National Instruments.
+* [[Cookbook/InputOutput|input/output]] Reading and writing a !NumPy array from/to an ascii/binary file.
+* [[Cookbook/FortranIO|Fortran I/O]] Reading FORTRAN record-structured binary files (if you don't know what these are, thank your stars and you don't need this).
+* [[Cookbook/Reading_SPE_files|Reading SPE files]] Reading SPE binary files produced by CCD cameras (Princeton and like).
+* [[Cookbook/LASReader|Reading LAS files]] Reading LAS (Log ASCII Standard) well log files.
+
+Graphics
+========
+
+There are several packages available to produce interactive screen
+graphics (use the mouse to zoom, orient, and fine-tune) and
+publication-quality printed plots, in 2D, 3D, and 4D (animations).
+These packages have releases more frequently than SciPy.  Rather than
+bundling out-of-date packages with SciPy, the plotting packages are
+released separately.  However, their developers work closely with the
+SciPy developers to ensure compatibility.
+
+* [[Cookbook/Matplotlib|Matplotlib cookbook]].  Matplotlib is the preferred package for 2D graphics.
+* [[Cookbook/MayaVi|3D plotting with Mayavi]]. Advanced 3D data visualization with !MayaVi2 (and TVTK): a very powerful interactive scientific data visualizer.
+* [[Cookbook/PIL_example|Python Imaging Library]]. Create/manipulate images as numpy array's.
+* [[Cookbook/xplt|Plotting with xplt]].  xplt is very fast but less flexible than matplotlib.  It allows simple 3-d surface visualizations as well. It is based on pygist (included) and is available under the sandbox directory in SVN scipy.
+* [[WilnaDuToit|Mat3d]]. Simple 3D plotting using an OpenGL backend.
+* [[Cookbook/LineIntegralConvolution|Line Integral Convolution]] code in cython for visualizing vector fields
+* [[vtkVolumeRendering|VTK volume rendering]]. This is a simple example that show how to use VTK to volume render your three dimensional numpy arrays.
+* [[Cookbook/OldMatplotlib|Old Matplotlib recipes]]. The recipes on this page are being contributed to the Matplotlib project and will eventually be deleted from this Wiki.
+
+Matplotlib
+==========
+
+The cookbook is a place for community contributions of recipes, howtos and examples.
+
+Complete documentation and tutorials for matplotlib can be found at [[http://matplotlib.sourceforge.net/|matplotlib's webpage]]
+
+<<BR>> <<TableOfContents>>
+
+Simple Plotting
+---------------
+
+* [[Cookbook/Matplotlib/SigmoidalFunctions|Sigmoidal Functions]] - plotting simple functions
+  . {{attachment:sigmoids_small.png}}
+* [[Cookbook/Matplotlib/MultilinePlots|Multiline Plots]] - how to plot multiple lines over one another
+  . {{attachment:multiline.png}}
+* [[Cookbook/Matplotlib/BarCharts|Bar Charts]] - how to make a bar chart
+  . {{attachment:barchartscaled.png}}
+* [[Cookbook/Matplotlib/Common_Errors|Common Errors]] - Compilation of common errors that can cause erroneous behavior. Check before emailing mailing lists.
+* [[Matplotlib/Animations]] - how to animate your figures.
+* [[Cookbook/Matplotlib/MulticoloredLine|Multicolored Line]] - different colors for different parts of a line
+  . {{attachment:colored_line.png}}
+* [[Cookbook/Matplotlib/ShadedRegions|Shaded Regions]] - how to plot grey shaded regions using transparency.
+  . {{attachment:shaded_small.png}}
+* [[Matplotlib/Arrows]] - how to plot arrows
+  . {{attachment:plot_arrow_small.png}}
+* [[Cookbook/Matplotlib/UnfilledHistograms|Unfilled Histograms]] - how to plot histograms that are un-filled and don't look like bar charts.
+  . {{attachment:hist_outline_small.png}}
+* [[Cookbook/Histograms]] - 2D histograms with variable bin width.
+  . {{attachment:Cookbook/Histograms/histogram2d.png}}
+* [[Cookbook/Matplotlib/CustomLogLabels|Custom Log Plot Labels]] - plotting log plots with custom tick labels that are formatted as integer numbers rather than exponents as is the default.
+  . {{attachment:log_labels_small.png}}
+* [[Cookbook/Matplotlib/ThickAxes|Thick Axes]] - how to make thick axes lines and bold fonts.
+  . {{attachment:thick_axes.png}}
+* [[Matplotlib/Maps]] - how to plot data on map projections
+  . {{attachment:basemap1.png}}
+* [[Cookbook/Matplotlib/Plotting_values_with_masked_arrays|Plotting values with masked arrays]] - How to plot only selected values of an array, because some values are meaningless (detector malfunction), out of range, etc. etc.
+* [[Matplotlib/Transformations]] - Using transformations to convert between different coordinate systems.
+* TreeMap - classic treemap style plots
+* [[Matplotlib/Legend]] - Adding a legend to your plot
+* [[Cookbook/Matplotlib/HintonDiagrams|Hinton Diagrams]] - A way of visualizing weight matrices
+  . {{attachment:hinton-small.png}}
+
+Pseudo Color Plots
+------------------
+
+* [[Cookbook/Matplotlib/Loading_a_colormap_dynamically|Loading a colormap dynamically]] - How to load a color map from a GMT (Generic Mapping Tools) file.
+* [[Cookbook/Matplotlib/Show_colormaps|Show colormaps]] - Small script to display all of the Matplotlib colormaps, and an exampleshowing how to create a new one.
+* [[Cookbook/Matplotlib/converting_a_matrix_to_a_raster_image|Converting a matrix to a raster image]] - A replacement for scipy's imsave command
+* [[Cookbook/Matplotlib/Gridding_irregularly_spaced_data|Gridding irregularly spaced data]] - how to grid scattered data points in order to make a contour or image plot.
+* [[Cookbook/Matplotlib/Plotting_Images_with_Special_Values|Plotting Images with Special Values]] - how to plot an image with special values mapped to specific colors, e.g. missing values or data extrema
+  . {{attachment:sentinel.png}}
+* [[Cookbook/Matplotlib/ColormapTransformations|Transformations on Colormaps]] - how to apply a function to the look up table of a colormap and turn it into another one.
+
+Typesetting
+-----------
+
+* [[Cookbook/Matplotlib/UsingTex|Using TeX]] - formatting matplotlib text with LaTeX
+  . {{attachment:tex_demo.png}}
+* [[Cookbook/Matplotlib/LaTeX_Examples|LaTeX Examples]] - Complete examples for generating publication quality figures using LaTeX.
+
+3D Plotting
+-----------
+
+||'''NOTE:''' '''''Experimental work has been going on to integrate 3D plotting functionality into matplotlib'''''. Please see the related [[http://matplotlib.sourceforge.net/mpl_toolkits/mplot3d/index.html?highlight-mplot3d|mplot3d documentation]] or take a look at [[http://matplotlib.sourceforge.net/gallery.html|matplotlib gallery]] for example 3D plots. For a more sophisticated 3D visualization and plotting interface, you can try [[http://code.enthought.com/projects/mayavi/|Mayavi]] which is actively maintained and features an 'mlab' interface similar to matplotlib's 'pylab'. ||
+
+* [[Cookbook/Matplotlib/mplot3D|3D plots]] - Simple 3D plots using matplotlibs built-in 3D functions (which were originally provided by John Porter's mplot3d add-on module).
+  . {{attachment:contourf3D.jpg}}
+* [[Cookbook/Matplotlib/VTK_Integration|VTK Integration]] - How to import plots into VTK.
+  . {{attachment:mpl_vtk.png}}
+
+Embedding Plots in Apps
+-----------------------
+
+* [[Cookbook/Matplotlib/EmbeddingInWx|Embedding in WX]] - Advice on how to embed matplotlib figures in [[http://www.wxpython.org|wxPython]] applications.
+* [[http://agni.phys.iit.edu/~kmcivor/wxmpl|WxMpl]] - Python module for integrating matplotlib into wxPython GUIs.
+* [[Cookbook/Matplotlib/ScrollingPlot]] - Demonstrates how to control a matplotlib plot embedded in a wxPython application with scrollbars.
+* [[http://code.enthought.com/projects/traits/docs/html/tutorials/traits_ui_scientific_app.html|Gael Varoquax's scientific GUI tutorial]] - Includes an instructive example of embedding matplotlib in a [[http://code.enthought.com/projects/traits_gui/|Traits GUI]].
+* [[Cookbook/Matplotlib/PySide]] - Demonstrates how to display a matplotlib plot embedded in a PySide (Qt) application
+
+Misc
+----
+
+* [[Cookbook/Matplotlib/LoadImage|Load and display an image]] - shows a simple way to import a PNG image to a numpy array
+* [[Cookbook/Matplotlib/Interactive_Plotting|Interactive Plotting]] - Adding mouse interaction to identify data annotations.
+* [[Cookbook/Matplotlib/Matplotlib_and_Zope|Matplotlib and Zope]] - How to use Matplotlib within the application server [[http://www.zope.org|Zope]].
+* [[Cookbook/Matplotlib/Qt_with_IPython_and_Designer|Qt with IPython and Designer]] - How to design a GUI using Qt's Designer tool using Matplotlib widgets, and that can be interactively controlled from the IPython command line.
+* [[Cookbook/Matplotlib/CompilingMatPlotLibOnSolaris10|Compiling Matplotlib on Solaris 10]] - how to compile the thing on Solaris 10, using gcc/g++
+* [[Cookbook/Matplotlib/Using_MatPlotLib_in_a_CGI_script|Using MatPlotLib in a CGI script]] - steps needed to be able to use matplotlib from a python cgi script
+* [[http://www.answermysearches.com/index.php/making-dynamic-charts-and-graphs-for-your-webpage/135/|Making Dynamic Charts for your Webpage]] - Complete CGI script example.
+* [[http://www.dalkescientific.com/writings/diary/archive/2005/04/23/matplotlib_without_gui.html|matplotlib without GUI]] by Andrew Dalke.
+* [[http://debs.astraw.com/dapper/|Andrew Straw's Apt Repository]] - Bleeding edge deb packages for Debian, Ubuntu (also has packages for numpy/scipy etc.).
+* [[Cookbook/Matplotlib/AdjustingImageSize|Adjusting Image Size]] - a brief discussion of how to adjust the size of figures -- for printing, web, etc.
+* [[Cookbook/Matplotlib/DeletingAnExistingDataSeries|Deleting An Existing Data Series]] - a quick example showing how to remove one data series from an already existing plot.
+* [[Cookbook/Matplotlib/Django|Embedding in Django]] - example on how to use matplotlib with Django.
+* [[Cookbook/Matplotlib/Multiple_Subplots_with_One_Axis_Label|Multiple Subplots with One Axis Label]] - how to use one centered label to annotate several subplots
+
+Using NumPy With Other Languages (Advanced)
+===========================================
+
+* A [[PerformancePython|comparison]] of Weave with !NumPy, Pyrex, Psyco, Fortran and C++ using Laplace's equation as an example.
+* Using [[Cookbook/Pyrex_and_NumPy|Pyrex and NumPy]] to share data between your Pyrex/C extension module and !NumPy.
+* Using [[Cookbook/ArrayStruct_and_Pyrex|Pyrex and the array_struct interface]] to access array data without requiring a C dependency on Numeric, numarray, or !NumPy.
+* '''!NumInd''': [[Cookbook/A_Numerical_Agnostic_Pyrex_Class|A Numerical Agnostic Pyrex Class]] to access Numeric/numarray/!NumPy arrays in an uniform way from both C and Pyrex space.
+* Using [[Cookbook/SWIG_and_NumPy|SWIG and NumPy]] to access and modify !NumPy arrays in C libraries.
+* '''numpy.i''': A few [[Cookbook/SWIG_NumPy_examples|SWIG and numpy.i]] basic examples.
+* '''numpy.i''': Using [[Cookbook/SWIG_Memory_Deallocation|SWIG and numpy.i]] to handle automatic C memory deallocation from Python (using a modified numpy.i).
+* Using [[Cookbook/F2Py|f2py]] to wrap Fortran codes.
+* Using [[Cookbook/f2py_and_NumPy|f2py and Numpy]] to wrap C codes.
+* Writing [[Cookbook/C_Extensions|C Extensions]].
+* Using [[Cookbook/Ctypes|ctypes with NumPy]].
+* Using [[Cookbook/Weave]] and '''iterators''' for fast, generalized code.
+
+Scientific GUIs
+===============
+
+* Using [[Cookbook/wxPython_dialogs|wxPython dialogs]] for simple user interaction.
+* Using [[TraitsUI]] to build interactive applications.
+
+Mayavi
+======
+
+* [[Cookbook/MayaVi/RunningMayavi2| Running MayaVi2]] on the command line.
+
+* [[Cookbook/MayaVi/ScriptingMayavi2| Scripting MayaVi2]] in Python.
+
+* [[Cookbook/MayaVi/Examples| Scripting Examples]] (all provided in !MayaVi2 svn tree):
+
+* Using Contour Module (contour.py)
+
+    * Using Glyph Module (glyph.py)
+
+    * Using Mayavi2 without GUI (nongui.py)
+
+    * A 3D array as numerical source (numeric_source.py)
+
+    * Using Streamline Module (streamline.py)
+
+    * Using !ImagePlaneWidget Module (test.py)
+
+    * Plotting a surface from a matrix (surf_regular_mlab.py). See also [[Cookbook/MayaVi/Surf]]
+
+ * [[Cookbook/MayaVi/Tips| Tips]]: General tips for !MayaVi2 and around.
+
+
+TVTK
+----
+* [[Cookbook/MayaVi/mlab| Mlab]]: module allowing to drive VTK from Python to do 3D plots ala matlab.
+
+* [[Cookbook/MayaVi/tvtk| tvtk]]: Traited VTK, including iVTK
