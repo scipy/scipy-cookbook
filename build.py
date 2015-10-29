@@ -171,6 +171,8 @@ def parse_file(dst_path, fn):
                   text,
                   flags=re.M)
     text = re.sub(r'^TAGS:.*$', '', text, flags=re.M)
+    text = re.sub(r'(figure|image):: files/attachments/', r'\1:: attachments/', text, flags=re.M)
+    text = re.sub(r' <files/attachments/', r' <attachments/', text, flags=re.M)
     with open(rst_fn, 'w') as f:
         f.write(text)
     del text
