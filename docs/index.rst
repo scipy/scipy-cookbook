@@ -28,5 +28,9 @@ SciPy Cookbook
 
 This is the "SciPy Cookbook" --- a conversion of the pages which once
 lived under ``wiki.scipy.org``.
+If you want to contribute additions/corrections, send pull requests to
+`the SciPy-CookBook repository
+<https://github.com/pv/SciPy-Cookbook/>`__.
+
 
 .. include:: items/index.txt
