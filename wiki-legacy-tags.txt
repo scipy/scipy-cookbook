@@ -5,6 +5,18 @@ It's not meant to be edited. Instead, include tag specifications to
 the cookbook files themselves (see README.md)
 
 
+Outdated
+========
+
+* [[Cookbook/xplt]]
+* [[Cookbook/A_Numerical_Agnostic_Pyrex_Class]]
+* [[Cookbook/ArrayStruct_and_Pyrex]]
+* [[Cookbook/DataFrame]]
+* [[Cookbook/dbase]]
+* [[Cookbook/Finding_Convex_Hull]]
+* [[Cookbook/FortranIO_FortranFile]]
+* [[Cookbook/TimeSeries_FAQ]]
+
 Tips and tricks
 ===============
 

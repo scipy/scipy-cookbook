@@ -10,7 +10,6 @@ import re
 import os
 import argparse
 import subprocess
-import json
 import shutil
 
 
@@ -60,6 +59,7 @@ def write_index(dst_path, titles, tags):
                 tag_counts[tag] = 1
             else:
                 tag_counts[tag] += 1
+    tag_counts['Outdated'] = 1e99
 
     # Generate tree
     tag_sets = {}
@@ -72,7 +72,10 @@ def write_index(dst_path, titles, tags):
         tag_sets.setdefault(tag_id, []).append(fn)
 
     tag_sets = list(tag_sets.items())
-    tag_sets.sort()
+    def tag_set_sort(item):
+        return (1 if 'Outdated' in item[0] else 0,
+                item)
+    tag_sets.sort(key=tag_set_sort)
 
     # Produce output
     for tag_id, fns in tag_sets:
@@ -81,13 +84,13 @@ def write_index(dst_path, titles, tags):
             continue
         fns.sort(key=lambda fn: titles[fn])
 
-        index_text.append("\n{0}\n{1}\n\n".format(tag_id, "-"*len(tag_id)))
-        for fn in fns:
-            index_text.append(":doc:`{0} <items/{1}>`\n".format(titles[fn], fn))
-
         section_base_fn = re.sub('_+', '_', re.sub('[^a-z0-9_]', "_", "_" + tag_id.lower())).strip('_')
         section_fn = os.path.join(dst_path, section_base_fn + '.rst')
         toctree_items.append(section_base_fn)
+
+        index_text.append("\n{0}\n{1}\n\n".format(tag_id, "-"*len(tag_id)))
+        for fn in fns:
+            index_text.append(":doc:`{0} <items/{1}>`\n".format(titles[fn], fn))
 
         with open(section_fn, 'w') as f:
             f.write("{0}\n{1}\n\n".format(tag_id, "="*len(tag_id)))
@@ -164,7 +167,9 @@ def parse_file(dst_path, fn):
         title = basename
     text = re.sub(r'`(.*?) <files/(attachments/.*?)>`__',
                   r':download:`\1 <\2>`',
-                  text)
+                  text,
+                  flags=re.M)
+    text = re.sub(r'^TAGS:.*$', '', text, flags=re.M)
     with open(rst_fn, 'w') as f:
         f.write(text)
     del text
@@ -177,10 +182,18 @@ def parse_file(dst_path, fn):
 Attachments
 -----------
 """)
+            images = []
             for fn in sorted(os.listdir(attach_dir)):
                 if os.path.isfile(os.path.join(attach_dir, fn)):
+                    if os.path.splitext(fn.lower())[1] in ('.png', '.jpg', '.jpeg'):
+                        images.append(fn)
                     f.write('- :download:`%s <attachments/%s/%s>`\n' % (
                         fn, basename, fn))
+
+            f.write("\n\n")
+            for fn in images:
+                f.write('.. image:: attachments/%s/%s\n' % (
+                    basename, fn))
 
     return title, tags
 
@@ -214,7 +227,7 @@ def parse_wiki_legacy_tags():
                 fn = os.path.join('ipython', name + '.ipynb')
                 if os.path.isfile(fn):
                     basename = os.path.splitext(os.path.basename(fn))[0]
-                    items[basename] = list(set(x for x in tags if x))
+                    items.setdefault(basename, set()).update([x for x in tags if x])
                 continue
 
     return items
