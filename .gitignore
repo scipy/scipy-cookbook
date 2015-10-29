@@ -5,4 +5,5 @@
 .#*
 \#*
 /build
-/www/data.json
+/docs/_build
+/docs/items

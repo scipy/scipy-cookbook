@@ -11,88 +11,178 @@ import os
 import argparse
 import subprocess
 import json
-import lxml.html
 import shutil
 
 
 def main():
     p = argparse.ArgumentParser(usage=__doc__.rstrip())
-    p.add_argument('--reparse', action='store_true')
+    p.add_argument('--html', action='store_true', help="Build HTML output")
     args = p.parse_args()
 
     os.chdir(os.path.abspath(os.path.dirname(__file__)))
 
-    write_tags(reparse=args.reparse)
-    do_gh_pages()
+    dst_path = os.path.join('docs', 'items')
+    if os.path.isdir(dst_path):
+        shutil.rmtree(dst_path)
+    os.makedirs(dst_path)
+
+    shutil.copytree(os.path.join('ipython', 'attachments'),
+                    os.path.join(dst_path, 'attachments'))
+
+    tags = parse_wiki_legacy_tags()
+    titles, tags_new = generate_files(dst_path=dst_path)
+
+    tags.update(tags_new)
+    write_index(dst_path, titles, tags)
+
+    if args.html:
+        subprocess.check_call(['sphinx-build', '-b', 'html', '.', '_build/html'],
+                              cwd='docs')
 
 
-def do_gh_pages():
-    if os.path.exists('build'):
-        shutil.rmtree('build')
-        os.makedirs('build')
+def write_index(dst_path, titles, tags):
+    index_rst = os.path.join(dst_path, 'index.txt')
 
-    subprocess.check_call(['git', 'clone', '-b', 'gh-pages', '.', 'build'])
-    subprocess.check_call(['git', '-C', 'build', 'rm', '-rf', '.'])
+    # Write doctree
+    toctree_items = []
+    index_text = []
 
-    for fn in os.listdir('www'):
-        if fn.endswith('~'):
+    # Fill in missing tags
+    for fn in titles.keys():
+        if fn not in tags or not tags[fn]:
+            tags[fn] = ['Other examples']
+
+    # Count tags
+    tag_counts = {}
+    for fn, tagset in tags.items():
+        for tag in tagset:
+            if tag not in tag_counts:
+                tag_counts[tag] = 1
+            else:
+                tag_counts[tag] += 1
+
+    # Generate tree
+    tag_sets = {}
+    for fn, tagset in tags.items():
+        tagset = list(set(tagset))
+        tagset.sort(key=lambda tag: -tag_counts[tag])
+        if 'Outdated' in tagset:
+            tagset = ['Outdated']
+        tag_id = " / ".join(tagset)
+        tag_sets.setdefault(tag_id, []).append(fn)
+
+    tag_sets = list(tag_sets.items())
+    tag_sets.sort()
+
+    # Produce output
+    for tag_id, fns in tag_sets:
+        fns = [fn for fn in fns if fn in titles]
+        if not fns:
             continue
-        shutil.copyfile(os.path.join('www', fn),
-                        os.path.join('build', fn))
-        
-    subprocess.check_call(['git', '-C', 'build', 'add', '.'])
-    subprocess.check_call(['git', '-C', 'build', 'commit', '--amend', '-m', 'Rebuild web site'])
-    subprocess.check_call(['git', 'fetch', 'build'])
-    subprocess.check_call(['git', 'branch', '-f', 'gh-pages', 'FETCH_HEAD'])
+        fns.sort(key=lambda fn: titles[fn])
 
-    print("gh-pages branch ready for git push -f")
+        index_text.append("\n{0}\n{1}\n\n".format(tag_id, "-"*len(tag_id)))
+        for fn in fns:
+            index_text.append(":doc:`{0} <items/{1}>`\n".format(titles[fn], fn))
+
+        section_base_fn = re.sub('_+', '_', re.sub('[^a-z0-9_]', "_", "_" + tag_id.lower())).strip('_')
+        section_fn = os.path.join(dst_path, section_base_fn + '.rst')
+        toctree_items.append(section_base_fn)
+
+        with open(section_fn, 'w') as f:
+            f.write("{0}\n{1}\n\n".format(tag_id, "="*len(tag_id)))
+            f.write(".. toctree::\n"
+                    "   :maxdepth: 1\n\n")
+            for fn in fns:
+                f.write("   {0}\n".format(fn))
+
+    # Write index
+    with open(index_rst, 'w') as f:
+        f.write(".. toctree::\n"
+                "   :maxdepth: 1\n"
+                "   :hidden:\n\n")
+        for fn in toctree_items:
+            f.write("   items/%s\n" % (fn,))
+        f.write("\n\n")
+        f.write("".join(index_text))
+        f.close()
 
 
-def write_tags(reparse=False):
-    data_json = os.path.join('www', 'data.json')
-
-    if reparse or not os.path.isfile(data_json):
-        tags = parse_wiki_legacy_tags()
-        titles = parse_files()
-        data = {
-            'tags': tags,
-            'titles': titles
-        }
-        with open(data_json, 'w') as f:
-            json.dump(data, f)
-    else:
-        with open(data_json, 'r') as f:
-            data = json.load(f)
-        titles = data['titles']
-        tags = data['tags']
-
-
-def parse_files():
+def generate_files(dst_path):
     titles = {}
+    tags = {}
 
     for fn in sorted(os.listdir('ipython')):
         if not fn.endswith('.ipynb'):
             continue
         fn = os.path.join('ipython', fn)
-        title, html = parse_file(fn)
-        titles[os.path.basename(fn)] = title
+        title, tagset = parse_file(dst_path, fn)
+        basename = os.path.splitext(os.path.basename(fn))[0]
+        titles[basename] = title
+        if tagset:
+            tags[basename] = tagset
 
-    return titles
+    return titles, tags
 
 
-def parse_file(fn):
+def parse_file(dst_path, fn):
     print(fn)
-    html = subprocess.check_output(['ipython', 'nbconvert', '--to', 'html',
-                                    '--stdout', fn], stderr=subprocess.PIPE)
-    tree = lxml.html.fromstring(html)
+    subprocess.check_call(['ipython', 'nbconvert', '--to', 'rst', os.path.abspath(fn)],
+                          cwd=dst_path,
+                          stderr=subprocess.PIPE)
 
-    h1 = tree.xpath('//h1')
-    if h1:
-        title = h1[0].text.strip()
-    else:
-        title = os.path.splitext(os.path.basename(fn))[0].replace('_', ' ').strip()
+    basename = os.path.splitext(os.path.basename(fn))[0]
+    rst_fn = os.path.join(dst_path, basename + '.rst')
 
-    return title, html
+    title = None
+    tags = set()
+
+    with open(rst_fn, 'r') as f:
+        prev_line = ''
+        for line in f:
+            line = line.strip()
+            m = re.match('^===+\s*$', line)
+            m2 = re.match('^---\s*$', line)
+            if m or m2:
+                if prev_line and len(line) >= len(prev_line):
+                    title = prev_line.strip()
+                    break
+                continue
+
+            m = re.match('^TAGS:\s*(.*)\s*$', line)
+            if m:
+                tag_line = m.group(1).strip().replace(';', ',')
+                tags.extend(tag_line.split())
+                continue
+
+            prev_line = line
+
+    with open(rst_fn, 'r') as f:
+        text = f.read()
+    if not title:
+        text = "{0}\n{1}\n\n{2}".format(basename, "="*len(basename), text)
+        title = basename
+    text = re.sub(r'`(.*?) <files/(attachments/.*?)>`__',
+                  r':download:`\1 <\2>`',
+                  text)
+    with open(rst_fn, 'w') as f:
+        f.write(text)
+    del text
+
+    attach_dir = os.path.join('ipython', 'attachments', basename)
+    if os.path.isdir(attach_dir) and len(os.listdir(attach_dir)) > 0:
+        with open(rst_fn, 'a') as f:
+            f.write("""
+
+Attachments
+-----------
+""")
+            for fn in sorted(os.listdir(attach_dir)):
+                if os.path.isfile(os.path.join(attach_dir, fn)):
+                    f.write('- :download:`%s <attachments/%s/%s>`\n' % (
+                        fn, basename, fn))
+
+    return title, tags
 
 
 def parse_wiki_legacy_tags():
@@ -123,7 +213,8 @@ def parse_wiki_legacy_tags():
 
                 fn = os.path.join('ipython', name + '.ipynb')
                 if os.path.isfile(fn):
-                    items[os.path.basename(fn)] = list(set(x for x in tags if x))
+                    basename = os.path.splitext(os.path.basename(fn))[0]
+                    items[basename] = list(set(x for x in tags if x))
                 continue
 
     return items
