@@ -20,6 +20,11 @@ def main():
 
     os.chdir(os.path.abspath(os.path.dirname(__file__)))
 
+    if args.html:
+        subprocess.check_call(['sphinx-build', '-b', 'html', '.', '_build/html'],
+                              cwd='docs')
+        return
+
     dst_path = os.path.join('docs', 'items')
     if os.path.isdir(dst_path):
         shutil.rmtree(dst_path)
@@ -33,10 +38,6 @@ def main():
 
     tags.update(tags_new)
     write_index(dst_path, titles, tags)
-
-    if args.html:
-        subprocess.check_call(['sphinx-build', '-b', 'html', '.', '_build/html'],
-                              cwd='docs')
 
 
 def write_index(dst_path, titles, tags):
