@@ -26,4 +26,7 @@ SciPy Cookbook
    }
    </style>
 
+This is the "SciPy Cookbook" --- a conversion of the pages which once
+lived under ``wiki.scipy.org``.
+
 .. include:: items/index.txt
