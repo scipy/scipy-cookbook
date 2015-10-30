@@ -32,8 +32,8 @@ SciPy Cookbook
    }
    </style>
 
-This is the "SciPy Cookbook" --- a conversion of the pages which once
-lived under ``wiki.scipy.org``.
+This is the "SciPy Cookbook" --- a collection of various user-contributed
+recipes, which once lived under ``wiki.scipy.org``.
 If you want to contribute additions/corrections, see the
 `the SciPy-CookBook repository
 <https://github.com/pv/SciPy-Cookbook/>`__.
