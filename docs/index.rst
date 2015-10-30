@@ -4,7 +4,7 @@ SciPy Cookbook
 .. raw:: html
 
    <style>
-   #scipy-cookbook a {
+   #cookbook-index a {
      background-color: #F3F6F6 !important;
      color: #404040 !important;
      display: inline-block;
@@ -28,7 +28,7 @@ SciPy Cookbook
 
 This is the "SciPy Cookbook" --- a conversion of the pages which once
 lived under ``wiki.scipy.org``.
-If you want to contribute additions/corrections, send pull requests to
+If you want to contribute additions/corrections, see the
 `the SciPy-CookBook repository
 <https://github.com/pv/SciPy-Cookbook/>`__.
 

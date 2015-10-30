@@ -20,11 +20,6 @@ def main():
 
     os.chdir(os.path.abspath(os.path.dirname(__file__)))
 
-    if args.html:
-        subprocess.check_call(['sphinx-build', '-b', 'html', '.', '_build/html'],
-                              cwd='docs')
-        return
-
     dst_path = os.path.join('docs', 'items')
     if os.path.isdir(dst_path):
         shutil.rmtree(dst_path)
@@ -38,6 +33,10 @@ def main():
 
     tags.update(tags_new)
     write_index(dst_path, titles, tags)
+
+    if args.html:
+        subprocess.check_call(['sphinx-build', '-b', 'html', '.', '_build/html'],
+                              cwd='docs')
 
 
 def write_index(dst_path, titles, tags):
@@ -108,7 +107,9 @@ def write_index(dst_path, titles, tags):
         for fn in toctree_items:
             f.write("   items/%s\n" % (fn,))
         f.write("\n\n")
+        f.write('.. raw:: html\n\n   <div id="cookbook-index">\n\n')
         f.write("".join(index_text))
+        f.write('\n\n.. raw:: html\n\n   </div>\n')
         f.close()
 
 
@@ -146,17 +147,16 @@ def parse_file(dst_path, fn):
         for line in f:
             line = line.strip()
             m = re.match('^===+\s*$', line)
-            m2 = re.match('^---\s*$', line)
+            m2 = re.match('^---+\s*$', line)
             if m or m2:
-                if prev_line and len(line) >= len(prev_line):
+                if prev_line and len(line) >= len(prev_line) and not title:
                     title = prev_line.strip()
-                    break
                 continue
 
             m = re.match('^TAGS:\s*(.*)\s*$', line)
             if m:
                 tag_line = m.group(1).strip().replace(';', ',')
-                tags.extend(tag_line.split())
+                tags.update(tag_line.split())
                 continue
 
             prev_line = line
@@ -174,6 +174,7 @@ def parse_file(dst_path, fn):
     text = re.sub(r'(figure|image):: files/attachments/', r'\1:: attachments/', text, flags=re.M)
     text = re.sub(r' <files/attachments/', r' <attachments/', text, flags=re.M)
     text = re.sub(r'.. parsed-literal::', r'.. parsed-literal::\n   :class: ipy-out', text, flags=re.M)
+    text = re.sub(r'`([^`<]*)\s+<(?!attachments/)([^:.>]*?)(?:.html)?>`__', r':doc:`\1 <items/\2>`', text, flags=re.M)
     with open(rst_fn, 'w') as f:
         f.write(text)
     del text
