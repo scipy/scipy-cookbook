@@ -13,9 +13,9 @@ Outdated
 * [[Cookbook/ArrayStruct_and_Pyrex]]
 * [[Cookbook/DataFrame]]
 * [[Cookbook/dbase]]
-* [[Cookbook/Finding_Convex_Hull]]
 * [[Cookbook/FortranIO_FortranFile]]
 * [[Cookbook/TimeSeries_FAQ]]
+* [[Cookbook/PIL_example]]
 
 Numpy / Scipy
 =============
