@@ -4,7 +4,14 @@ SciPy Cookbook
 .. raw:: html
 
    <style>
+   #cookbook-index {
+     font-size: 80%;
+   }
+   #cookbook-index .headerlink {
+     display: none;
+   }
    #cookbook-index a {
+     font-size: 80%;
      background-color: #F3F6F6 !important;
      color: #404040 !important;
      display: inline-block;
@@ -13,8 +20,7 @@ SciPy Cookbook
      white-space: nowrap;
      text-align: center;
      cursor: pointer;
-     font-size: 100%;
-     padding: 6px 12px 8px;
+     padding: 3px 6px 4px;
      border: 1px solid rgba(0, 0, 0, 0.1);
      text-decoration: none;
      font-weight: normal;
