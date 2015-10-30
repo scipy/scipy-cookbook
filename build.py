@@ -149,7 +149,7 @@ def parse_file(dst_path, fn):
             m = re.match('^===+\s*$', line)
             m2 = re.match('^---+\s*$', line)
             if m or m2:
-                if prev_line and len(line) >= len(prev_line) and not title:
+                if prev_line and len(line) >= 1+len(prev_line)//2 and not title:
                     title = prev_line.strip()
                 continue
 
