@@ -174,7 +174,7 @@ def parse_file(dst_path, fn):
     text = re.sub(r'(figure|image):: files/attachments/', r'\1:: attachments/', text, flags=re.M)
     text = re.sub(r' <files/attachments/', r' <attachments/', text, flags=re.M)
     text = re.sub(r'.. parsed-literal::', r'.. parsed-literal::\n   :class: ipy-out', text, flags=re.M)
-    text = re.sub(r'`([^`<]*)\s+<(?!attachments/)([^:.>]*?)(?:.html)?>`__', r':doc:`\1 <items/\2>`', text, flags=re.M)
+    text = re.sub(r'`([^`<]*)\s+<(?!attachments/)([^:.>]*?)(?:.html)?>`__', r':doc:`\1 <\2>`', text, flags=re.M)
     with open(rst_fn, 'w') as f:
         f.write(text)
     del text
