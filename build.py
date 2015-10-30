@@ -69,7 +69,7 @@ def write_index(dst_path, titles, tags):
         tagset.sort(key=lambda tag: -tag_counts[tag])
         if 'Outdated' in tagset:
             tagset = ['Outdated']
-        tag_id = " / ".join(tagset)
+        tag_id = " / ".join(tagset[:2])
         tag_sets.setdefault(tag_id, []).append(fn)
 
     tag_sets = list(tag_sets.items())

@@ -17,8 +17,11 @@ Outdated
 * [[Cookbook/FortranIO_FortranFile]]
 * [[Cookbook/TimeSeries_FAQ]]
 
+Numpy / Scipy
+=============
+
 Tips and tricks
-===============
+---------------
 
 * [[Cookbook/BuildingArrays|Building Arrays]] Introduction to numerical arrays.
 * [[Cookbook/Indexing|Indexing]] Indexing numpy arrays, from simple to complicated.
@@ -31,18 +34,18 @@ Tips and tricks
 * [[Cookbook/AccumarrayLike|accumarray-like function]] A function that behaves like MATLAB's accumarray.
 
 Linear Algebra
-==============
+--------------
 
 * [[Cookbook/RankNullspace|Rank and nullspace]] of a matrix.
 
 Interpolation
-=============
+-------------
 
 * [[Cookbook/Interpolation|Interpolation]] Examples of interpolation (see also [[Cookbook/Matplotlib/Gridding_irregularly_spaced_data|Gridding irregularly spaced data]]).
 * [[Cookbook/RadialBasisFunctions|Radial Basis Functions]] Using radial basis functions for smoothing/interpolation
 
 Optimization and fitting techniques
-===================================
+-----------------------------------
 
 * [[Cookbook/OptimizationDemo1|Optimization]] Quick example of fminbound with plot.
 * [[Cookbook/OptimizationAndFitDemo1|Optimization with fit]] Similar to above with spline fit and chaco plot.
@@ -53,7 +56,7 @@ Optimization and fitting techniques
 * [[Cookbook/RANSAC|RANSAC algorithm]] Implementation of the robust estimation method.
 
 Ordinary differential equations
-===============================
+-------------------------------
 
 * [[Cookbook/Zombie_Apocalypse_ODEINT|Zombie Apocalypse ODE Modeling]] Modeling a Zombie Apocalypse by solving a system of ordinary differential equations using the SciPy routine, ''odeint''.
 * [[Cookbook/CoupledSpringMassSystem|A coupled spring-mass system]] Another example of solving differential equations.
@@ -62,13 +65,13 @@ Ordinary differential equations
 * [[Cookbook/Theoretical_Ecology/Hastings_and_Powell|Hastings and Powell food chain model]]
 
 Root finding
-============
+------------
 
 * [[Cookbook/SphericalBesselZeros|Spherical Bessel Zeros]] Finding the zeros of the spherical Bessel functions and its derivative
 * [[Cookbook/Intersection|Intersection of functions]] Compute the points at which two given functions intersect.
 
 Other examples
-==============
+--------------
 
 * [[Cookbook/Rebinning|Data rebinning]] Examples of rebinning data to produce smaller arrays with and without interpolation.
 * [[Cookbook/Histograms|Histograms]] 2D histograms with variable bin width
@@ -94,7 +97,7 @@ Other examples
 * [[Cookbook/EyeDiagram| Plot an eye diagram]] using numpy and matplotlib.
 
 Advanced topics
-===============
+---------------
 
 * [[Cookbook/ViewsVsCopies|Views vs Copies]] A quick introduction to array views and some caveats on situations where you should expect a [[http://open.salon.com/blog/smebs/2011/05/16/marketing_data_box_-_complete_strategy_guide_for_smbs|data]] view or a data copy.
 
