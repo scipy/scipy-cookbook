@@ -34,9 +34,12 @@ SciPy Cookbook
 
 This is the "SciPy Cookbook" --- a collection of various user-contributed
 recipes, which once lived under ``wiki.scipy.org``.
+Note that many are fairly old (2005--2009), and may not be as relevant
+today.
 If you want to contribute additions/corrections, see the
 `the SciPy-CookBook repository
 <https://github.com/pv/SciPy-Cookbook/>`__.
+
 
 
 .. include:: items/index.txt
