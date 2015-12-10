@@ -156,7 +156,7 @@ def parse_file(dst_path, fn):
             m = re.match('^TAGS:\s*(.*)\s*$', line)
             if m:
                 tag_line = m.group(1).strip().replace(';', ',')
-                tags.update(tag_line.split())
+                tags.update([x.strip() for x in tag_line.split(",")])
                 continue
 
             prev_line = line
