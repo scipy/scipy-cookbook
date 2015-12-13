@@ -1,6 +1,30 @@
 div.ipy-out div {
     border: none;
     background-color: #eee;
+    padding-top: 0;
+    margin-top: -24px;
+    overflow-x: wrap;
+}
+
+pre.ipy-out {
+    border: none;
+    background-color: #eee;
+    padding-top: 0;
+    margin-top: -24px !important;
+    overflow-x: wrap;
+    white-space: normal;
+}
+
+pre.ipy-out:before {
+    content: "Out []: ";
+}
+
+div.ipy-out pre {
+    white-space: normal;
+}
+
+div.ipy-out pre:before {
+    content: "Out []: ";
 }
 
 div.document {

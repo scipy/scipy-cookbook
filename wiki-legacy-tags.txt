@@ -17,7 +17,7 @@ Outdated
 * [[Cookbook/TimeSeries_FAQ]]
 * [[Cookbook/PIL_example]]
 
-Numpy / Scipy
+Numpy & Scipy
 =============
 
 Tips and tricks
