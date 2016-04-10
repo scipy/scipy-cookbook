@@ -132,7 +132,9 @@ def generate_files(dst_path):
 
 def parse_file(dst_path, fn):
     print(fn)
-    subprocess.check_call(['jupyter', 'nbconvert', '--to', 'rst', os.path.abspath(fn)],
+    subprocess.check_call(['jupyter', 'nbconvert', '--to', 'rst',
+                           '--output-dir', os.path.abspath(dst_path),
+                           os.path.abspath(fn)],
                           cwd=dst_path,
                           stderr=subprocess.PIPE)
 
