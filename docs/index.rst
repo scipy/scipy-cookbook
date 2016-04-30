@@ -38,7 +38,7 @@ Note that some are fairly old (2005--2009), and may not be as relevant
 today.
 If you want to contribute additions/corrections, see the
 `the SciPy-CookBook repository
-<https://github.com/pv/SciPy-Cookbook/>`__.
+<https://github.com/scipy/scipy-cookbook/>`__.
 
 
 

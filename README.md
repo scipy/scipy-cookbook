@@ -31,8 +31,8 @@ of extra time on their hands, going through them could be useful.
 
 Before starting, check out the list of pull requests and issues here to avoid
 doing duplicate work. You can see which files have been already modified by
-looking at here: https://github.com/pv/SciPy-CookBook/tree/master/ipython. It's 
-also worth checking https://github.com/pv/SciPy-CookBook/network to see if 
+looking at here: https://github.com/scipy/scipy-cookbook/tree/master/ipython. It's 
+also worth checking https://github.com/scipy/scipy-cookbook/network to see if 
 there are any in-progress branches uploaded to Github which haven't yet been 
 merged.
 
@@ -41,7 +41,7 @@ fork this repo, and then do
 
     git clone git@github.com:YOURUSERNAME/SciPy-CookBook.git
     cd SciPy-CookBook
-    git remote add upstream https://github.com/pv/SciPy-CookBook.git
+    git remote add upstream https://github.com/scipy/scipy-cookbook.git
     cd ipython
 
 and then switch to a new branch
@@ -62,7 +62,7 @@ request.
 
 If you however cannot be arsed to use git, just upload the file somewhere (e.g.
 gist.github.com) and file [a new
-issue](https://github.com/pv/SciPy-CookBook/issues) and tell which file you
+issue](https://github.com/scipy/scipy-cookbook/issues) and tell which file you
 changed and include a link to the uploaded file. Thanks!
 
 What to fix
