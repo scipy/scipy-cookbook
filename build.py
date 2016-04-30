@@ -40,6 +40,12 @@ def main():
 
 
 def write_index(dst_path, titles, tags):
+    """
+    Write index files under `dst_path`
+
+    """
+    titles = dict(titles)
+
     index_rst = os.path.join(dst_path, 'index.txt')
 
     # Write doctree
@@ -62,6 +68,10 @@ def write_index(dst_path, titles, tags):
     tag_counts['Outdated'] = 1e99
 
     # Generate tree
+    def get_section_name(tag_id):
+        return ("idx_" +
+                re.sub('_+', '_', re.sub('[^a-z0-9_]', "_", "_" + tag_id.lower())).strip('_'))
+
     tag_sets = {}
     for fn, tagset in tags.items():
         tagset = list(set(tagset))
@@ -69,7 +79,13 @@ def write_index(dst_path, titles, tags):
         if 'Outdated' in tagset:
             tagset = ['Outdated']
         tag_id = " / ".join(tagset[:2])
-        tag_sets.setdefault(tag_id, []).append(fn)
+        tag_sets.setdefault(tag_id, set()).add(fn)
+
+        if len(tagset[:2]) > 1:
+            # Add sub-tag to the tree
+            sec_name = get_section_name(tag_id)
+            titles[sec_name] = tagset[1]
+            tag_sets.setdefault(tagset[0], set()).add(sec_name)
 
     tag_sets = list(tag_sets.items())
     def tag_set_sort(item):
@@ -79,24 +95,31 @@ def write_index(dst_path, titles, tags):
 
     # Produce output
     for tag_id, fns in tag_sets:
-        fns = [fn for fn in fns if fn in titles]
-        if not fns:
-            continue
+        fns = list(fns)
         fns.sort(key=lambda fn: titles[fn])
 
-        section_base_fn = re.sub('_+', '_', re.sub('[^a-z0-9_]', "_", "_" + tag_id.lower())).strip('_')
+        section_base_fn = get_section_name(tag_id)
         section_fn = os.path.join(dst_path, section_base_fn + '.rst')
-        toctree_items.append(section_base_fn)
+
+        if ' / ' not in tag_id:
+            toctree_items.append(section_base_fn)
 
         index_text.append("\n{0}\n{1}\n\n".format(tag_id, "-"*len(tag_id)))
         for fn in fns:
             index_text.append(":doc:`{0} <items/{1}>`\n".format(titles[fn], fn))
 
         with open(section_fn, 'w') as f:
-            f.write("{0}\n{1}\n\n".format(tag_id, "="*len(tag_id)))
+            sec_title = titles.get(section_base_fn, tag_id)
+            f.write("{0}\n{1}\n\n".format(sec_title, "="*len(sec_title)))
             f.write(".. toctree::\n"
                     "   :maxdepth: 1\n\n")
+
+            sub_idx = [fn for fn in fns if fn.startswith('idx')]
+            for fn in sub_idx:
+                f.write("   {0}\n".format(fn))
             for fn in fns:
+                if fn in sub_idx:
+                    continue
                 f.write("   {0}\n".format(fn))
 
     # Write index
@@ -114,6 +137,16 @@ def write_index(dst_path, titles, tags):
 
 
 def generate_files(dst_path):
+    """
+    Read all .ipynb files and produce .rst under `dst_path`
+
+    Returns
+    -------
+    titles : dict
+        Dictionary {file_basename: notebook_title, ...}
+    tags : dict
+        Dictionary {file_basename: set([tag1, tag2, ...]), ...}
+    """
     titles = {}
     tags = {}
 
@@ -121,7 +154,7 @@ def generate_files(dst_path):
         if not fn.endswith('.ipynb'):
             continue
         fn = os.path.join('ipython', fn)
-        title, tagset = parse_file(dst_path, fn)
+        title, tagset = convert_file(dst_path, fn)
         basename = os.path.splitext(os.path.basename(fn))[0]
         titles[basename] = title
         if tagset:
@@ -130,7 +163,18 @@ def generate_files(dst_path):
     return titles, tags
 
 
-def parse_file(dst_path, fn):
+def convert_file(dst_path, fn):
+    """
+    Convert .ipynb to .rst, placing output under `dst_path`
+
+    Returns
+    -------
+    title : str
+        Title of the notebook
+    tags : set of str
+        Tags given in the notebook file
+
+    """
     print(fn)
     subprocess.check_call(['jupyter', 'nbconvert', '--to', 'rst',
                            '--output-dir', os.path.abspath(dst_path),
