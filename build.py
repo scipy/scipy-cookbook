@@ -244,18 +244,10 @@ def convert_file(dst_path, fn):
 .. rubric:: Attachments
 
 """)
-            images = []
             for fn in sorted(os.listdir(attach_dir)):
                 if os.path.isfile(os.path.join(attach_dir, fn)):
-                    if os.path.splitext(fn.lower())[1] in ('.png', '.jpg', '.jpeg'):
-                        images.append(fn)
                     f.write('- :download:`%s <attachments/%s/%s>`\n' % (
                         fn, basename, fn))
-
-            f.write("\n\n")
-            for fn in images:
-                f.write('.. image:: attachments/%s/%s\n' % (
-                    basename, fn))
 
     return title, tags
 
