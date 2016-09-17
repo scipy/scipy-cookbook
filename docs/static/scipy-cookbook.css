@@ -20,11 +20,7 @@ pre.ipy-out:before {
 }
 
 div.ipy-out pre {
-    white-space: normal;
-}
-
-div.ipy-out pre:before {
-    content: "Out []: ";
+    white-space: pre;
 }
 
 div.document {
