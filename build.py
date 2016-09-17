@@ -11,22 +11,32 @@ import os
 import argparse
 import subprocess
 import shutil
+import glob
 
 
 def main():
     p = argparse.ArgumentParser(usage=__doc__.rstrip())
     p.add_argument('--html', action='store_true', help="Build HTML output")
+    p.add_argument('--no-clean', action='store_true', help="Skip removing old output")
     args = p.parse_args()
 
     os.chdir(os.path.abspath(os.path.dirname(__file__)))
 
     dst_path = os.path.join('docs', 'items')
-    if os.path.isdir(dst_path):
+    dst_path_ipynb = os.path.join('docs', 'static', 'items')
+
+    if os.path.isdir(dst_path) and not args.no_clean:
         shutil.rmtree(dst_path)
-    os.makedirs(dst_path)
+    if not os.path.isdir(dst_path):
+        os.makedirs(dst_path)
+    if os.path.isdir(dst_path_ipynb):
+        shutil.rmtree(dst_path_ipynb)
 
     shutil.copytree(os.path.join('ipython', 'attachments'),
                     os.path.join(dst_path, 'attachments'))
+
+    shutil.copytree('ipython', dst_path_ipynb,
+                    ignore=lambda src, names: [x for x in names if not x.endswith('.ipynb')])
 
     tags = parse_wiki_legacy_tags()
     titles, tags_new = generate_files(dst_path=dst_path)
@@ -231,8 +241,8 @@ def convert_file(dst_path, fn):
         with open(rst_fn, 'a') as f:
             f.write("""
 
-Attachments
------------
+.. rubric:: Attachments
+
 """)
             images = []
             for fn in sorted(os.listdir(attach_dir)):

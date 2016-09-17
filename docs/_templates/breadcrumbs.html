@@ -16,7 +16,8 @@
       <li class="wy-breadcrumbs-aside">
 	{% if pagename != "search" and pagename != "index" %}
 	<a href="https://github.com/scipy/scipy-cookbook/blob/master/ipython/{{ pagename.replace('items/', '') }}.ipynb" class="fa fa-github">Github</a>
-	<a href="https://github.com/scipy/scipy-cookbook/raw/master/ipython/{{ pagename.replace('items/', '') }}.ipynb" download="{{ pagename.replace('items/', '') }}.ipynb">Download</a>
+	<a href="{{ pathto('_static/items/' + pagename.replace('items/', '') + '.ipynb', 1) }}"
+           download="{{ pagename.replace('items/', '') }}.ipynb">Download</a>
 	{% endif %}
       </li>
   </ul>

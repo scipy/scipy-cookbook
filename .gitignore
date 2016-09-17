@@ -7,4 +7,5 @@
 /build
 /docs/_build
 /docs/items
+/docs/static/items
 /ipython/.ipynb_checkpoints
