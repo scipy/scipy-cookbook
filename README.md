@@ -4,22 +4,21 @@ Scipy Cookbook
 This is a conversion and second life of SciPy Cookbook (previously at
 http://wiki.scipy.org/Cookbook/); as a bunch of Ipython notebooks. 
 
-It can be found at http://scipy-cookbook.readthedocs.org/
+It can be found live at http://scipy-cookbook.readthedocs.org/
 
-Outline
-=======
+Contributing
+============
 
-**Add new notebooks / fix old ones by sending pull requests, as usual.**
+**Add new notebooks or fix old ones by sending pull requests**
 
 * The ``ipython/`` directory contains IPython notebooks.
 * Each notebook should start with a title (Markdown ``# Some title``).
-* Notebooks can be categorized by adding Markdown text ``TAGS: Name of section``.
+* Notebooks can be categorized by adding Markdown text ``TAGS: Name of section`` (on a single line).
   Try to stick with existing sections, if reasonable.
-* Notebooks can include author name, by adding Markdown text ``AUTHORS: Some Name; Another Name``.
-* The old wiki pages had attachments, stored under ``ipython/attachments/Name_of_notebook``.
-  Probably best to avoid those in the future.
+* Notebooks can include author name, by adding Markdown text ``AUTHORS: Some Name; Another Name``
+  (on a single line).
 
-Run ``python build.py --html`` to generate HTML output to ``_build/html``
+Run ``python build.py --html`` to generate HTML output to ``_build/html``.
 
 The conversion of the wiki content was originally done by Matti Pastell:
 https://github.com/mpastell/SciPy-CookBook
