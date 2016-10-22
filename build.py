@@ -114,19 +114,28 @@ def write_index(dst_path, titles, tags):
         if ' / ' not in tag_id:
             toctree_items.append(section_base_fn)
 
-        index_text.append("\n{0}\n{1}\n\n".format(tag_id, "-"*len(tag_id)))
-        for fn in fns:
-            index_text.append(":doc:`{0} <items/{1}>`\n".format(titles[fn], fn))
+        non_idx_items = [fn for fn in fns if not fn.startswith('idx_')]
+
+        if non_idx_items:
+            index_text.append("\n{0}\n{1}\n\n".format(tag_id, "-"*len(tag_id)))
+            for fn in non_idx_items:
+                index_text.append(":doc:`{0} <items/{1}>`\n".format(titles[fn], fn))
 
         with open(section_fn, 'w') as f:
             sec_title = titles.get(section_base_fn, tag_id)
             f.write("{0}\n{1}\n\n".format(sec_title, "="*len(sec_title)))
-            f.write(".. toctree::\n"
-                    "   :maxdepth: 1\n\n")
 
             sub_idx = [fn for fn in fns if fn.startswith('idx')]
-            for fn in sub_idx:
-                f.write("   {0}\n".format(fn))
+
+            if sub_idx:
+                f.write(".. toctree::\n"
+                        "   :maxdepth: 1\n\n")
+                for fn in sub_idx:
+                    f.write("   {0}\n".format(fn))
+                f.write("\n\n")
+
+            f.write(".. toctree::\n"
+                    "   :maxdepth: 1\n\n")
             for fn in fns:
                 if fn in sub_idx:
                     continue
