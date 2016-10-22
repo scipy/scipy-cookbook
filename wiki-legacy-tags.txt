@@ -16,6 +16,7 @@ Outdated
 * [[Cookbook/FortranIO_FortranFile]]
 * [[Cookbook/TimeSeries_FAQ]]
 * [[Cookbook/PIL_example]]
+* [[Cookbook/MayaVi_InstallPythonStuffFromSource]]
 
 Numpy & Scipy
 =============
@@ -33,19 +34,24 @@ Tips and tricks
 * [[Cookbook/Recarray|Recarray]] Accessing array columns with structured arrays and recarrays.
 * [[Cookbook/AccumarrayLike|accumarray-like function]] A function that behaves like MATLAB's accumarray.
 
+Advanced topics
+---------------
+
+* [[Cookbook/ViewsVsCopies|Views vs Copies]] A quick introduction to array views and some caveats on situations where you should expect a [[http://open.salon.com/blog/smebs/2011/05/16/marketing_data_box_-_complete_strategy_guide_for_smbs|data]] view or a data copy.
+
 Linear Algebra
---------------
+==============
 
 * [[Cookbook/RankNullspace|Rank and nullspace]] of a matrix.
 
 Interpolation
--------------
+=============
 
 * [[Cookbook/Interpolation|Interpolation]] Examples of interpolation (see also [[Cookbook/Matplotlib/Gridding_irregularly_spaced_data|Gridding irregularly spaced data]]).
 * [[Cookbook/RadialBasisFunctions|Radial Basis Functions]] Using radial basis functions for smoothing/interpolation
 
-Optimization and fitting techniques
------------------------------------
+Optimization and fitting
+========================
 
 * [[Cookbook/OptimizationDemo1|Optimization]] Quick example of fminbound with plot.
 * [[Cookbook/OptimizationAndFitDemo1|Optimization with fit]] Similar to above with spline fit and chaco plot.
@@ -56,7 +62,7 @@ Optimization and fitting techniques
 * [[Cookbook/RANSAC|RANSAC algorithm]] Implementation of the robust estimation method.
 
 Ordinary differential equations
--------------------------------
+===============================
 
 * [[Cookbook/Zombie_Apocalypse_ODEINT|Zombie Apocalypse ODE Modeling]] Modeling a Zombie Apocalypse by solving a system of ordinary differential equations using the SciPy routine, ''odeint''.
 * [[Cookbook/CoupledSpringMassSystem|A coupled spring-mass system]] Another example of solving differential equations.
@@ -65,13 +71,13 @@ Ordinary differential equations
 * [[Cookbook/Theoretical_Ecology/Hastings_and_Powell|Hastings and Powell food chain model]]
 
 Root finding
-------------
+============
 
 * [[Cookbook/SphericalBesselZeros|Spherical Bessel Zeros]] Finding the zeros of the spherical Bessel functions and its derivative
 * [[Cookbook/Intersection|Intersection of functions]] Compute the points at which two given functions intersect.
 
 Other examples
---------------
+==============
 
 * [[Cookbook/Rebinning|Data rebinning]] Examples of rebinning data to produce smaller arrays with and without interpolation.
 * [[Cookbook/Histograms|Histograms]] 2D histograms with variable bin width
@@ -96,23 +102,13 @@ Other examples
 * [[Cookbook/LinearClassification|Linear Classification]] Fisher's discriminant function and Probabilistic Generative model
 * [[Cookbook/EyeDiagram| Plot an eye diagram]] using numpy and matplotlib.
 
-Advanced topics
----------------
-
-* [[Cookbook/ViewsVsCopies|Views vs Copies]] A quick introduction to array views and some caveats on situations where you should expect a [[http://open.salon.com/blog/smebs/2011/05/16/marketing_data_box_-_complete_strategy_guide_for_smbs|data]] view or a data copy.
-
-Compiling Extensions
-====================
-
-* [[Cookbook/CompilingExtensionsOnWindowsWithMinGW|Compiling Extensions on Windows]] A quick tutorial on how to compile extension modules on Windows using MinGW
-
 Scientific Scripts
 ===================================
 * [[Cookbook/Theoretical_Ecology|Theoretical Ecology]]
 * [[Cookbook/SchrodingerFDTD|Schrödinger's equation]]: a 1-d FDTD solver that animates the time evolution of a gaussian wave packet interacting with simple potentials.
 
-Input Output
-============
+Input & Output
+==============
 * [[Cookbook/hdf5_in_Matlab|Loading hdf5 in Matlab]]
 * [[Cookbook/Reading_mat_files|Reading Matlab .mat files]]
 * [[Cookbook/DataFrame|DataFrames]] A useful class for storing alphanumerical data, similar to GNU R's data frames.
@@ -143,8 +139,46 @@ SciPy developers to ensure compatibility.
 * [[vtkVolumeRendering|VTK volume rendering]]. This is a simple example that show how to use VTK to volume render your three dimensional numpy arrays.
 * [[Cookbook/OldMatplotlib|Old Matplotlib recipes]]. The recipes on this page are being contributed to the Matplotlib project and will eventually be deleted from this Wiki.
 
+Mayavi
+------
+
+* [[Cookbook/MayaVi/RunningMayavi2| Running MayaVi2]] on the command line.
+
+* [[Cookbook/MayaVi/ScriptingMayavi2| Scripting MayaVi2]] in Python.
+
+* [[Cookbook/MayaVi/ScriptingMayavi2/BasicModules]]
+* [[Cookbook/MayaVi/ScriptingMayavi2/Filters]]
+* [[Cookbook/MayaVi/ScriptingMayavi2/MainModules]]
+
+* [[Cookbook/MayaVi/examples| Scripting Examples]] (all provided in !MayaVi2 svn tree):
+
+* Using Contour Module (contour.py)
+
+    * Using Glyph Module (glyph.py)
+
+    * Using Mayavi2 without GUI (nongui.py)
+
+    * A 3D array as numerical source (numeric_source.py)
+
+    * Using Streamline Module (streamline.py)
+
+    * Using !ImagePlaneWidget Module (test.py)
+
+    * Plotting a surface from a matrix (surf_regular_mlab.py). See also [[Cookbook/MayaVi/Surf]]
+
+* [[Cookbook/MayaVi/Tips| Tips]]: General tips for !MayaVi2 and around.
+* [[Cookbook/MayaVi_examples]]
+
+
+TVTK
+""""
+* [[Cookbook/MayaVi/mlab| Mlab]]: module allowing to drive VTK from Python to do 3D plots ala matlab.
+
+* [[Cookbook/MayaVi/tvtk| tvtk]]: Traited VTK, including iVTK
+
+
 Matplotlib
-==========
+----------
 
 The cookbook is a place for community contributions of recipes, howtos and examples.
 
@@ -153,7 +187,7 @@ Complete documentation and tutorials for matplotlib can be found at [[http://mat
 <<BR>> <<TableOfContents>>
 
 Simple Plotting
----------------
+"""""""""""""""
 
 * [[Cookbook/Matplotlib/SigmoidalFunctions|Sigmoidal Functions]] - plotting simple functions
   . {{attachment:sigmoids_small.png}}
@@ -181,13 +215,14 @@ Simple Plotting
   . {{attachment:basemap1.png}}
 * [[Cookbook/Matplotlib/Plotting_values_with_masked_arrays|Plotting values with masked arrays]] - How to plot only selected values of an array, because some values are meaningless (detector malfunction), out of range, etc. etc.
 * [[Matplotlib/Transformations]] - Using transformations to convert between different coordinate systems.
-* TreeMap - classic treemap style plots
+* [[Matplotlib/TreeMap]] - classic treemap style plots
 * [[Matplotlib/Legend]] - Adding a legend to your plot
 * [[Cookbook/Matplotlib/HintonDiagrams|Hinton Diagrams]] - A way of visualizing weight matrices
   . {{attachment:hinton-small.png}}
+* [[Cookbook/Matplotlib_TreeMap]]
 
 Pseudo Color Plots
-------------------
+""""""""""""""""""
 
 * [[Cookbook/Matplotlib/Loading_a_colormap_dynamically|Loading a colormap dynamically]] - How to load a color map from a GMT (Generic Mapping Tools) file.
 * [[Cookbook/Matplotlib/Show_colormaps|Show colormaps]] - Small script to display all of the Matplotlib colormaps, and an exampleshowing how to create a new one.
@@ -198,14 +233,14 @@ Pseudo Color Plots
 * [[Cookbook/Matplotlib/ColormapTransformations|Transformations on Colormaps]] - how to apply a function to the look up table of a colormap and turn it into another one.
 
 Typesetting
------------
+"""""""""""
 
 * [[Cookbook/Matplotlib/UsingTex|Using TeX]] - formatting matplotlib text with LaTeX
   . {{attachment:tex_demo.png}}
 * [[Cookbook/Matplotlib/LaTeX_Examples|LaTeX Examples]] - Complete examples for generating publication quality figures using LaTeX.
 
 3D Plotting
------------
+"""""""""""
 
 ||'''NOTE:''' '''''Experimental work has been going on to integrate 3D plotting functionality into matplotlib'''''. Please see the related [[http://matplotlib.sourceforge.net/mpl_toolkits/mplot3d/index.html?highlight-mplot3d|mplot3d documentation]] or take a look at [[http://matplotlib.sourceforge.net/gallery.html|matplotlib gallery]] for example 3D plots. For a more sophisticated 3D visualization and plotting interface, you can try [[http://code.enthought.com/projects/mayavi/|Mayavi]] which is actively maintained and features an 'mlab' interface similar to matplotlib's 'pylab'. ||
 
@@ -215,16 +250,18 @@ Typesetting
   . {{attachment:mpl_vtk.png}}
 
 Embedding Plots in Apps
------------------------
+"""""""""""""""""""""""
 
 * [[Cookbook/Matplotlib/EmbeddingInWx|Embedding in WX]] - Advice on how to embed matplotlib figures in [[http://www.wxpython.org|wxPython]] applications.
 * [[http://agni.phys.iit.edu/~kmcivor/wxmpl|WxMpl]] - Python module for integrating matplotlib into wxPython GUIs.
 * [[Cookbook/Matplotlib/ScrollingPlot]] - Demonstrates how to control a matplotlib plot embedded in a wxPython application with scrollbars.
 * [[http://code.enthought.com/projects/traits/docs/html/tutorials/traits_ui_scientific_app.html|Gael Varoquax's scientific GUI tutorial]] - Includes an instructive example of embedding matplotlib in a [[http://code.enthought.com/projects/traits_gui/|Traits GUI]].
 * [[Cookbook/Matplotlib/PySide]] - Demonstrates how to display a matplotlib plot embedded in a PySide (Qt) application
+* [[Cookbook/EmbeddingInTraitsGUI]]
+* [[Cookbook/Matplotlib_Drag_n_Drop_Text_Example]]
 
 Misc
-----
+""""
 
 * [[Cookbook/Matplotlib/LoadImage|Load and display an image]] - shows a simple way to import a PNG image to a numpy array
 * [[Cookbook/Matplotlib/Interactive_Plotting|Interactive Plotting]] - Adding mouse interaction to identify data annotations.
@@ -240,8 +277,8 @@ Misc
 * [[Cookbook/Matplotlib/Django|Embedding in Django]] - example on how to use matplotlib with Django.
 * [[Cookbook/Matplotlib/Multiple_Subplots_with_One_Axis_Label|Multiple Subplots with One Axis Label]] - how to use one centered label to annotate several subplots
 
-Using NumPy With Other Languages (Advanced)
-===========================================
+Interfacing With Other Languages
+================================
 
 * A [[PerformancePython|comparison]] of Weave with !NumPy, Pyrex, Psyco, Fortran and C++ using Laplace's equation as an example.
 * Using [[Cookbook/Pyrex_and_NumPy|Pyrex and NumPy]] to share data between your Pyrex/C extension module and !NumPy.
@@ -253,8 +290,11 @@ Using NumPy With Other Languages (Advanced)
 * Using [[Cookbook/F2Py|f2py]] to wrap Fortran codes.
 * Using [[Cookbook/f2py_and_NumPy|f2py and Numpy]] to wrap C codes.
 * Writing [[Cookbook/C_Extensions|C Extensions]].
+* [[Cookbook/C_Extensions_NumPy_arrays]]
 * Using [[Cookbook/Ctypes|ctypes with NumPy]].
 * Using [[Cookbook/Weave]] and '''iterators''' for fast, generalized code.
+* [[Cookbook/CompilingExtensionsOnWindowsWithMinGW|Compiling Extensions on Windows]] A quick tutorial on how to compile extension modules on Windows using MinGW
+
 
 Scientific GUIs
 ===============
@@ -262,34 +302,3 @@ Scientific GUIs
 * Using [[Cookbook/wxPython_dialogs|wxPython dialogs]] for simple user interaction.
 * Using [[TraitsUI]] to build interactive applications.
 
-Mayavi
-======
-
-* [[Cookbook/MayaVi/RunningMayavi2| Running MayaVi2]] on the command line.
-
-* [[Cookbook/MayaVi/ScriptingMayavi2| Scripting MayaVi2]] in Python.
-
-* [[Cookbook/MayaVi/Examples| Scripting Examples]] (all provided in !MayaVi2 svn tree):
-
-* Using Contour Module (contour.py)
-
-    * Using Glyph Module (glyph.py)
-
-    * Using Mayavi2 without GUI (nongui.py)
-
-    * A 3D array as numerical source (numeric_source.py)
-
-    * Using Streamline Module (streamline.py)
-
-    * Using !ImagePlaneWidget Module (test.py)
-
-    * Plotting a surface from a matrix (surf_regular_mlab.py). See also [[Cookbook/MayaVi/Surf]]
-
- * [[Cookbook/MayaVi/Tips| Tips]]: General tips for !MayaVi2 and around.
-
-
-TVTK
-----
-* [[Cookbook/MayaVi/mlab| Mlab]]: module allowing to drive VTK from Python to do 3D plots ala matlab.
-
-* [[Cookbook/MayaVi/tvtk| tvtk]]: Traited VTK, including iVTK

@@ -293,7 +293,7 @@ def convert_file(dst_path, fn, editors):
 
 
 def parse_wiki_legacy_tags():
-    tags = [None, None]
+    tags = [None, None, None]
     items = {}
 
     with open('wiki-legacy-tags.txt', 'r') as f:
@@ -303,10 +303,16 @@ def parse_wiki_legacy_tags():
             if re.match('^====+\s*$', line):
                 tags[0] = prev_line.strip()
                 tags[1] = None
+                tags[2] = None
                 continue
 
             if re.match('^----+\s*$', line):
                 tags[1] = prev_line.strip()
+                tags[2] = None
+                continue
+
+            if re.match('^""""+\s*$', line):
+                tags[2] = prev_line.strip()
                 continue
 
             prev_line = line
