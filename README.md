@@ -11,6 +11,8 @@ Contributing
 
 **Add new notebooks or fix old ones by sending pull requests**
 
+Alternatively open an issue and attach (drag-and-drop) a fixed notebook file.
+
 * The ``ipython/`` directory contains IPython notebooks.
 * Each notebook should start with a title (Markdown ``# Some title``).
 * Notebooks can be categorized by adding Markdown text ``TAGS: Name of section`` (on a single line).
