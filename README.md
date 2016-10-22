@@ -15,6 +15,7 @@ Outline
 * Each notebook should start with a title (Markdown ``# Some title``).
 * Notebooks can be categorized by adding Markdown text ``TAGS: Name of section``.
   Try to stick with existing sections, if reasonable.
+* Notebooks can include author name, by adding Markdown text ``AUTHORS: Some Name; Another Name``.
 * The old wiki pages had attachments, stored under ``ipython/attachments/Name_of_notebook``.
   Probably best to avoid those in the future.
 

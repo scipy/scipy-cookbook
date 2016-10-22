@@ -1,0 +1,309 @@
+#
+# Full list of any page edits
+#
+CategoryCookbook: DavidLinke, AndrewStraw
+CategoryCookbookMatplotlib: AndrewStraw
+Cookbook: AndrewStraw, DavidLinke, TravisOliphant, jh, Unknown[1], DavidHuard, RobertCimrman, SciPyDotOrg, Unknown[2], PearuPeterson, DavidCooke, FrancescAltet, Unknown[3], Unknown[4], GaelVaroquaux, AlbertStrasheim, AngusMcMorland, Unknown[5], Unknown[6], NickFotopoulos, Unknown[7], Unknown[8], Unknown[9], Unknown[10], GabrielGellner, VincentNijs, Unknown[11], BillBaxter, MattKnox, Unknown[12], AMArchibald, FredericPetit, Unknown[13], FernandoPerez, Unknown[14], Unknown[15], Unknown[16], TimMichelsen, Unknown[17], Unknown[18], Unknown[19], PauliVirtanen, nokfi, EgorZindy, WarrenWeckesser, Unknown[20], Unknown[21], IvoMaljevic, EmmanuelleGouillart, JorgeEduardoCardona, Unknown[22], Unknown[23], Elby, ChristopherCampo, DmitriyRybalkin, WarrenWeckesser, Unknown[24], ScottSinclair, FrankBreitling
+ASTER: TravisOliphant, SimonHook
+A_Numerical_Agnostic_Pyrex_Class: FrancescAltet
+A_Pyrex_Agnostic_Class: FrancescAltet, AndrewStraw
+AccumarrayLike: WarrenWeckesser
+ApplyFIRFilter: WarrenWeckesser, WarrenWeckesser
+ArrayStruct_and_Pyrex: AndrewStraw, DavidLinke, Unknown[25]
+Autovectorize: NickFotopoulos, AMArchibald, TimMichelsen
+BrownianMotion: WarrenWeckesser
+BuildingArrays: DavidHuard, Unknown[26], Unknown[27], GaelVaroquaux, Unknown[28], BillBaxter, NilsWagner, MartinSpacek, Unknown[29], Unknown[5], Unknown[30], Unknown[31], Unknown[32], arjen
+ButterworthBandpass: WarrenWeckesser
+C_Extensions: AlbertStrasheim, TravisOliphant, DavidLinke
+C_Extensions_NumPy_arrays: Unknown[33], DavidLinke, TravisOliphant, Unknown[34], Unknown[35], Unknown[36], Unknown[37], Unknown[38], Unknown[39], Unknown[40]
+CommTheory: IvoMaljevic, GaelVaroquaux
+CompilingExtensionsOnWindowsWithMinGW: MattKnox
+CorrelatedRandomSamples: WarrenWeckesser, WarrenWeckesser
+CoupledSpringMassSystem: WarrenWeckesser
+Ctypes: AlbertStrasheim, GaelVaroquaux, StefanVanDerWalt, TravisOliphant, DavidLinke, Unknown[41], AndrewStraw, Unknown[42], WilliamHunter, mauro
+DataFrame: Unknown[8], Unknown[43], Unknown[44], Unknown[45]
+Data_Acquisition_with_NIDAQmx: AndrewStraw, Unknown[46], PearuPeterson
+Data_Acquisition_with_PyUL: AndrewStraw
+EmbeddingInTraitsGUI: Unknown[47], GaelVaroquaux
+EyeDiagram: WarrenWeckesser
+F2Py: DavidCooke, mauro, Pierre_deBuyl
+FIRFilter: WarrenWeckesser
+FiltFilt: Unknown[1], Unknown[48], Unknown[49], Unknown[50], Unknown[51], WarrenWeckesser
+Finding_Convex_Hull: AngusMcMorland
+Finding_Convex_Hull_Minimum_Point: JorgeEduardoCardona
+FittingData: GaelVaroquaux, Unknown[52], Unknown[53], jh, jesrl, keflavich, MartinSpacek, Unknown[54]
+FortranIO: AMArchibald, NeilMB
+FortranIO_FortranFile: NeilMB
+FortranIO_FortranFile(2e): NeilMB
+FrequencySweptDemo: WarrenWeckesser
+GMailPM: wolfganglechner
+GameOfLifeStrides: RobertCimrman
+Histograms: FrankBreitling, Unknown[55]
+Indexing: AMArchibald, jh
+InputOutput: Unknown[5], VincentNijs, Unknown[56], FredericPetit, Elby, MartinSpacek, Unknown[57], Unknown[58], Unknown[53], AMArchibald, Unknown[59], Unknown[60], Unknown[61], Unknown[62], MikeToews
+Interpolation: TravisOliphant, Unknown[63], GaelVaroquaux, AndrewStraw, NickFotopoulos
+Intersection: nokfi
+KDTree: Unknown[18], Unknown[64], Unknown[65], MikeToews, RalfGommers
+KalmanFiltering: AndrewStraw
+KdV: WarrenWeckesser
+LASReader: WarrenWeckesser
+Least_Squares_Circle: Elby
+LineIntegralConvolution: AMArchibald
+LinearClassification: DmitriyRybalkin
+LinearRegression: Unknown[1], Unknown[66], TimCera
+LoktaVolterraTutorial: Elby, Unknown[67], Unknown[68], PauliVirtanen, nokfi, Unknown[69], ChristopherCampo
+Matplotlib: AndrewStraw, Unknown[70], TravisOliphant, MichaelMcNeilForbes, GaelVaroquaux, Unknown[71], Unknown[72], Unknown[73], Unknown[74], Unknown[9], LaurentPerrinet, Unknown[75], AngusMcMorland, Unknown[76], MattKnox, Unknown[77], FredericPetit, jesrl, Unknown[78], TimMichelsen, Unknown[47], WarrenWeckesser, Unknown[79], Unknown[80], LevGivon, Unknown[81], Unknown[82], FrankBreitling
+Matplotlib_AdjustingImageSize: AndrewStraw, MartinSpacek, Unknown[75], TimSwast
+Matplotlib_Animations: AndrewStraw, Unknown[83], Unknown[84], Unknown[85], Unknown[86], KristjanOnu, WarrenWeckesser
+Matplotlib_Arrows: jesrl
+Matplotlib_BarCharts: Unknown[74], GaelVaroquaux, Unknown[87]
+Matplotlib_ColormapTransformations: GaelVaroquaux, DavidHuard, newacct, Unknown[88]
+Matplotlib_Common_Errors: AndrewStraw
+Matplotlib_CompilingMatPlotLibOnSolaris10: AndrewStraw, Unknown[83], Unknown[89]
+Matplotlib_CustomLogLabels: jesrl
+Matplotlib_DeletingAnExistingDataSeries: AngusMcMorland
+Matplotlib_Django: Unknown[90], Unknown[91], Unknown[92], Unknown[93], RalphMoore
+Matplotlib_Drag_n_Drop_Text_Example: Elby
+Matplotlib_EmbeddingInWx: AndrewStraw, Unknown[94]
+Matplotlib_Gridding_irregularly_spaced_data: AndrewStraw, Unknown[95], Unknown[55], Unknown[96], Unknown[97], Unknown[13], ChristopherCampo, PauliVirtanen, WarrenWeckesser, Unknown[98]
+Matplotlib_HintonDiagrams: Unknown[79], MartinSpacek
+Matplotlib_Interactive_Plotting: AndrewStraw, GaelVaroquaux, Unknown[99], AngusMcMorland, newacct
+Matplotlib_LaTeX_Examples: MichaelMcNeilForbes, Unknown[100], GaelVaroquaux, Unknown[101], EmmanuelleGouillart, Unknown[102], LaurentPerrinet, Unknown[8]
+Matplotlib_Legend: Unknown[77], GaelVaroquaux, Unknown[103], Unknown[104], TimSwast
+Matplotlib_LoadImage: LaurentPerrinet
+Matplotlib_Loading_a_colormap_dynamically: AndrewStraw
+Matplotlib_Maps: AndrewStraw, Unknown[97], GaelVaroquaux, Unknown[16], Unknown[105]
+Matplotlib_Matplotlib_and_Zope: AndrewStraw, Unknown[106], Unknown[107]
+Matplotlib_MulticoloredLine: AndrewStraw, GaelVaroquaux, Unknown[108]
+Matplotlib_MultilinePlots: AndrewStraw, GaelVaroquaux
+Matplotlib_Multiple_Subplots_with_One_Axis_Label: Unknown[78], DavidLinke, Unknown[80], Unknown[109], Unknown[110]
+Matplotlib_Plotting_Images_with_Special_Values: AndrewStraw
+Matplotlib_Plotting_values_with_masked_arrays: AndrewStraw, UnuTbu
+Matplotlib_PySide: Unknown[82], Unknown[111]
+Matplotlib_Qt_with_IPython_and_Designer: AndrewStraw, KristjanOnu
+Matplotlib_ScrollingPlot: LevGivon
+Matplotlib_ShadedRegions: jesrl
+Matplotlib_Show_colormaps: AndrewStraw, Unknown[95], Unknown[91], NeilMB, Unknown[112], DavidLinke, Unknown[113], newacct, Unknown[114]
+Matplotlib_SigmoidalFunctions: AndrewStraw, RobManagan
+Matplotlib_ThickAxes: jesrl
+Matplotlib_Transformations: AndrewStraw, Unknown[115], Unknown[77], GaelVaroquaux, Unknown[116]
+Matplotlib_TreeMap: Unknown[72], AndrewStraw
+Matplotlib_UnfilledHistograms: jesrl, MarshallPerrin
+Matplotlib_UsingTex: AndrewStraw, Unknown[117], Unknown[118], Unknown[119]
+Matplotlib_Using_MatPlotLib_in_a_CGI_script: AndrewStraw, Unknown[120], Unknown[121]
+Matplotlib_VTK_Integration: AndrewStraw, Unknown[41], Unknown[122]
+Matplotlib_converting_a_matrix_to_a_raster_image: GaelVaroquaux, Unknown[123], Unknown[124]
+Matplotlib_mplot3D: Unknown[2], AndrewStraw, Unknown[9], Unknown[125], Unknown[123], Unknown[126], Unknown[83], GaelVaroquaux, Unknown[127], MartinSpacek
+MayaVi: ArndBaecker, Unknown[128], Unknown[6], FredericPetit, GaelVaroquaux
+MayaVi_Examples: FredericPetit, GaelVaroquaux
+MayaVi_InstallPythonStuffFromSource: FredericPetit
+MayaVi_Installation: ArndBaecker, Unknown[6], GaelVaroquaux, FredericPetit, Unknown[129], BillBaxter, AngusMcMorland
+MayaVi_RunningMayavi2: GaelVaroquaux, FredericPetit, Unknown[130]
+MayaVi_ScriptingMayavi2: FredericPetit, Unknown[131], GaelVaroquaux, Unknown[6], Unknown[132]
+MayaVi_ScriptingMayavi2_BasicModules: FredericPetit
+MayaVi_ScriptingMayavi2_Filters: FredericPetit
+MayaVi_ScriptingMayavi2_MainModules: FredericPetit
+MayaVi_Surf: GaelVaroquaux, Unknown[41], Unknown[133]
+MayaVi_Tips: Unknown[6], GaelVaroquaux, FredericPetit
+MayaVi_examples: FredericPetit
+MayaVi_mlab: ArndBaecker, GaelVaroquaux
+MayaVi_tvtk: ArndBaecker, Unknown[128], GaelVaroquaux, Unknown[6]
+MetaArray: Unknown[15], WarrenWeckesser
+MultiDot: BillBaxter
+Multithreading: AMArchibald, DavidLinke
+OLS: VincentNijs, Unknown[103], DavidLinke, AlanLue
+Obarray: AMArchibald
+OldMatplotlib: ScottSinclair
+OptimizationAndFitDemo1: SciPyDotOrg, Unknown[1], Unknown[134], PauliVirtanen
+OptimizationDemo1: SciPyDotOrg, Unknown[135], Unknown[136], Unknown[137]
+PIL: Unknown[7], LaurentPerrinet
+ParticleFilter: Unknown[19], BAlexRobinson
+Pyrex_and_NumPy: AndrewStraw, DavidLinke, Unknown[138], Unknown[25], FernandoPerez
+RANSAC: AndrewStraw, DatChu
+RadialBasisFunctions: Unknown[13], ScottSinclair
+RankNullspace: WarrenWeckesser
+Reading_Custom_Text_Files_with_Pyparsing: Elby
+Reading_SPE_files: Unknown[21], Unknown[139]
+Reading_mat_files: Unknown[16], DavidPowell
+Rebinning: Unknown[3], DavidLinke, AngusMcMorland, Unknown[129]
+Recarray: jh, TimMichelsen
+SWIG_Memory_Deallocation: EgorZindy
+SWIG_NumPy_examples: EgorZindy
+SWIG_and_NumPy: RobertCimrman, AndrewStraw, FernandoPerez, WilliamHunter
+SavitzkyGolay: Unknown[11], Unknown[140], Unknown[141], Unknown[142], WarrenWeckesser, WarrenWeckesser, thomas.haslwanter
+SchrodingerFDTD: FernandoPerez, JamesNagel
+SegmentAxis: AMArchibald
+SignalSmooth: Unknown[1], GaelVaroquaux, Unknown[143], Unknown[144], Unknown[145], Unknown[146], Unknown[147], Unknown[148], WesTurner
+Solving_Large_Markov_Chains: nokfi
+SphericalBesselZeros: FredericPetit, GaelVaroquaux
+Theoretical_Ecology: GabrielGellner
+Theoretical_Ecology_Hastings_and_Powell: GabrielGellner, WarrenWeckesser
+TimeSeries: TimMichelsen, MattKnox
+TimeSeries_FAQ: TimMichelsen, MattKnox, Unknown[149]
+ViewsVsCopies: FrancescAltet, Unknown[16], WarrenWeckesser
+Watershed: EmmanuelleGouillart, DavidLinke
+Weave: Unknown[17], DavidLinke, WarrenWeckesser
+Zombie_Apocalypse_ODEINT: ChristopherCampo
+dbase: VincentNijs
+f2py_and_NumPy: PearuPeterson, AndrewStraw, AlbertStrasheim
+hdf5_in_Matlab: GaelVaroquaux, PauliVirtanen
+mplot3D: AndrewStraw
+multiprocessing: Unknown[18], PauliVirtanen
+vtkVolumeRendering: Unknown[20], PauliVirtanen
+wxPython_dialogs: GabrielGellner, Unknown[150]
+xplt: TravisOliphant
+wikis_topical_software_MatplotlibCookbook: AndrewStraw
+
+#
+# Unresolved users
+#
+Unknown[2] : 1140130090.73.26701 34 
+Unknown[19] : 1192792982.32.33646 33 
+Unknown[18] : 1222198261.41.13085 30 
+Unknown[33] : 1161108413.93.13451 23 
+Unknown[13] : 1161122172.92.12452 18 
+Unknown[97] : 1143292253.36.33282 18 
+Unknown[141] : 1273180957.22.38451 17 
+Unknown[14] : 1179946959.18.31559 17 
+Unknown[117] : 1138209848.28.23719 15 
+Unknown[1] : 1136350821.17.3858 14 
+Unknown[5] : 1147350245.48.33297 13 
+Unknown[47] : 1205084922.92.52394 11 
+Unknown[8] : 1158133077.15.7840 11 
+Unknown[6] : 1136348958.12.55682 11 
+Unknown[15] : 1204762319.1.55436 10 
+Unknown[95] : 1139528181.75.18655 10 
+Unknown[74] : 1155134305.93.22544 9 
+Unknown[79] : 1242323478.43.45455 8 
+Unknown[21] : 1138810091.99.5126 8 
+Unknown[16] : 1204809158.67.49889 7 
+Unknown[11] : 1173198834.69.25082 7 
+Unknown[17] : 1155941540.81.54944 7 
+Unknown[3] : 1139487334.99.50561 7 
+Unknown[9] : 1158098774.38.64183 6 
+Unknown[77] : 1154035039.71.41599 6 
+Unknown[60] : 1243729904.58.14443 5 
+Unknown[80] : 1234762887.66.14948 5 
+Unknown[83] : 1141920306.92.21510 5 
+Unknown[46] : 1242755893.43.12185 4 
+Unknown[29] : 1178818414.24.14672 4 
+Unknown[91] : 1156890439.37.27001 4 
+Unknown[53] : 1140542637.91.49174 4 
+Unknown[41] : 1140488813.94.58687 4 
+Unknown[20] : 1234729385.77.32045 3 
+Unknown[68] : 1223297145.9.1273 3 
+Unknown[136] : 1223166437.15.27477 3 
+Unknown[78] : 1206041838.96.56176 3 
+Unknown[42] : 1205864128.22.37057 3 
+Unknown[135] : 1204345959.51.62239 3 
+Unknown[112] : 1199767581.9.44453 3 
+Unknown[30] : 1191908698.42.30538 3 
+Unknown[38] : 1188921502.56.52738 3 
+Unknown[140] : 1188141438.63.29340 3 
+Unknown[118] : 1173824980.6.46169 3 
+Unknown[48] : 1165257394.77.27638 3 
+Unknown[72] : 1154198122.95.54949 3 
+Unknown[55] : 1139176990.16.17019 3 
+Unknown[129] : 1135159993.15.48123 3 
+Unknown[82] : 1309988513.98.27729 2 
+Unknown[43] : 1244511110.6.14864 2 
+Unknown[143] : 1242186055.15.3458 2 
+Unknown[89] : 1231625087.07.46719 2 Cookbook(2f)Matplotlib(2f)CompilingMatPlotLibOnSolaris10
+Unknown[61] : 1228370846.7.32755 2 
+Unknown[93] : 1222182878.27.65500 2 
+Unknown[58] : 1208880410.18.31097 2 
+Unknown[126] : 1192485481.02.45422 2 
+Unknown[103] : 1178427146.28.32767 2 
+Unknown[36] : 1176717370.19.8188 2 
+Unknown[133] : 1171379031.1.5592 2 
+Unknown[102] : 1170753203.97.51058 2 
+Unknown[90] : 1167764826.08.29354 2 
+Unknown[52] : 1164898028.61.3834 2 
+Unknown[7] : 1156064879.45.1190 2 
+Unknown[123] : 1152096074.52.52535 2 
+Unknown[131] : 1151014466.92.37080 2 
+Unknown[121] : 1147521195.57.17251 2 Cookbook(2f)Matplotlib(2f)Using_MatPlotLib_in_a_CGI_script
+Unknown[25] : 1141166629.43.46004 2 
+Unknown[128] : 1141146598.71.5390 2 
+Unknown[75] : 1139445586.22.14441 2 
+Unknown[70] : 1138378158.47.60490 2 
+Unknown[100] : 1137613214.29.2252 2 
+Unknown[76] : 1136844369.67.33708 2 
+Unknown[88] : 1351000486.29.28731 1 Cookbook(2f)Matplotlib(2f)ColormapTransformations
+Unknown[45] : 1348862213.57.35278 1 Cookbook(2f)DataFrame
+Unknown[110] : 1340223964.94.14303 1 Cookbook(2f)Matplotlib(2f)Multiple_Subplots_with_One_Axis_Label
+Unknown[148] : 1339576132.61.41342 1 
+Unknown[111] : 1339334395.73.23746 1 Cookbook(2f)Matplotlib(2f)PySide
+Unknown[114] : 1338983366.0.36633 1 Cookbook(2f)Matplotlib(2f)Show_colormaps
+Unknown[147] : 1337175747.9.58342 1 
+Unknown[109] : 1317264548.76.61160 1 
+Unknown[98] : 1315401645.47.50771 1 Cookbook(2f)Matplotlib(2f)Gridding_irregularly_spaced_data
+Unknown[24] : 1312488821.37.65223 1 
+Unknown[146] : 1309026029.66.16019 1 
+Unknown[51] : 1308857579.78.32484 1 
+Unknown[105] : 1293520482.71.32540 1 Cookbook(2f)Matplotlib(2f)Maps
+Unknown[145] : 1291737170.42.11668 1 
+Unknown[139] : 1291378670.79.3816 1 Cookbook(2f)Reading_SPE_files
+Unknown[23] : 1281690329.66.27462 1 
+Unknown[40] : 1277025332.07.57219 1 Cookbook(2f)C_Extensions(2f)NumPy_arrays
+Unknown[116] : 1276706613.92.4834 1 Cookbook(2f)Matplotlib(2f)Transformations
+Unknown[54] : 1276431608.81.29886 1 
+Unknown[142] : 1273566762.86.32354 1 
+Unknown[44] : 1273240225.9.37132 1 
+Unknown[32] : 1272892412.29.30947 1 
+Unknown[108] : 1269198784.31.17690 1 Cookbook(2f)Matplotlib(2f)MulticoloredLine
+Unknown[65] : 1268215999.32.53883 1 
+Unknown[81] : 1265965955.68.405 1 
+Unknown[69] : 1264808900.48.55234 1 
+Unknown[22] : 1263454247.56.7964 1 
+Unknown[64] : 1262548405.57.32352 1 
+Unknown[86] : 1258995427.6.55502 1 
+Unknown[122] : 1258476330.07.38021 1 Cookbook(2f)Matplotlib(2f)VTK_Integration
+Unknown[127] : 1250078377.36.57048 1 
+Unknown[144] : 1250075664.5.24994 1 
+Unknown[104] : 1247336133.43.17888 1 
+Unknown[124] : 1235647635.43.28351 1 Cookbook(2f)Matplotlib(2f)converting_a_matrix_to_a_raster_image
+Unknown[31] : 1229538449.31.14493 1 
+Unknown[149] : 1228474251.66.16423 1 Cookbook(2f)TimeSeries(2f)FAQ
+Unknown[119] : 1228360607.51.54594 1 Cookbook(2f)Matplotlib(2f)UsingTex
+Unknown[113] : 1226988042.35.46252 1 
+Unknown[59] : 1226656173.89.39060 1 
+Unknown[150] : 1225700327.55.58243 1 Cookbook(2f)wxPython_dialogs
+Unknown[57] : 1207325198.0.20628 1 
+Unknown[87] : 1199372458.44.702 1 Cookbook(2f)Matplotlib(2f)BarCharts
+Unknown[39] : 1194351481.19.9091 1 
+Unknown[50] : 1187279937.97.8669 1 
+Unknown[37] : 1185562748.42.37032 1 
+Unknown[92] : 1183063303.81.26089 1 
+Unknown[125] : 1175352843.3.28130 1 
+Unknown[49] : 1175163835.2.54361 1 
+Unknown[35] : 1174534429.91.32884 1 
+Unknown[12] : 1173795126.22.20717 1 
+Unknown[67] : 1173511338.97.48604 1 
+Unknown[34] : 1173445984.33.56487 1 
+Unknown[132] : 1172118920.23.14034 1 
+Unknown[85] : 1171940714.41.42630 1 
+Unknown[137] : 1171911351.82.53596 1 Cookbook(2f)OptimizationDemo1
+Unknown[130] : 1170211666.59.6264 1 
+Unknown[56] : 1169597128.87.8734 1 
+Unknown[62] : 1169144869.41.54841 1 
+Unknown[107] : 1165252184.8.33862 1 Cookbook(2f)Matplotlib(2f)Matplotlib_and_Zope
+Unknown[84] : 1160121047.97.39235 1 
+Unknown[120] : 1159215341.06.12896 1 
+Unknown[10] : 1157542383.05.39060 1 
+Unknown[101] : 1155842880.41.42294 1 
+Unknown[73] : 1154941149.34.45916 1 
+Unknown[71] : 1152663133.76.24476 1 
+Unknown[96] : 1149521522.62.1783 1 
+Unknown[27] : 1148246637.84.22334 1 
+Unknown[28] : 1147816767.94.8167 1 
+Unknown[66] : 1146089022.83.54452 1 
+Unknown[134] : 1145865296.79.2272 1 
+Unknown[94] : 1145507424.39.24426 1 Cookbook(2f)Matplotlib(2f)EmbeddingInWx
+Unknown[63] : 1144895289.68.43531 1 
+Unknown[99] : 1144849095.75.42298 1 
+Unknown[106] : 1142444931.14.20090 1 
+Unknown[26] : 1139360105.85.1212 1 
+Unknown[115] : 1138659073.19.20633 1 
+Unknown[138] : 1137718487.2.45248 1 
+Unknown[4] : 1135026695.12.62922 1 

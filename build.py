@@ -160,12 +160,28 @@ def generate_files(dst_path):
     titles = {}
     tags = {}
 
+    legacy_editors = parse_wiki_legacy_users()
+
     for fn in sorted(os.listdir('ipython')):
         if not fn.endswith('.ipynb'):
             continue
         fn = os.path.join('ipython', fn)
-        title, tagset = convert_file(dst_path, fn)
         basename = os.path.splitext(os.path.basename(fn))[0]
+
+        # Get old wiki editors
+        editors = list(legacy_editors.get(basename, []))
+
+        # Get names from Git
+        p = subprocess.Popen(['git', 'log', '--format=%an', 'ef45029096..', fn],
+                                 stdout=subprocess.PIPE)
+        names, _ = p.communicate()
+        for name in names.splitlines():
+            name = name.strip()
+            if name and name not in editors:
+                editors.append(name)
+
+        # Continue
+        title, tagset = convert_file(dst_path, fn, editors)
         titles[basename] = title
         if tagset:
             tags[basename] = tagset
@@ -173,7 +189,7 @@ def generate_files(dst_path):
     return titles, tags
 
 
-def convert_file(dst_path, fn):
+def convert_file(dst_path, fn, editors):
     """
     Convert .ipynb to .rst, placing output under `dst_path`
 
@@ -197,16 +213,21 @@ def convert_file(dst_path, fn):
 
     title = None
     tags = set()
+    editors = list(editors)
+    legacy_editors = True
+
+    lines = []
 
     with open(rst_fn, 'r') as f:
         prev_line = ''
-        for line in f:
-            line = line.strip()
+        for orig_line in f:
+            line = orig_line.strip()
             m = re.match('^===+\s*$', line)
             m2 = re.match('^---+\s*$', line)
             if m or m2:
                 if prev_line and len(line) >= 1+len(prev_line)//2 and not title:
                     title = prev_line.strip()
+                lines = lines[:-1]
                 continue
 
             m = re.match('^TAGS:\s*(.*)\s*$', line)
@@ -215,13 +236,30 @@ def convert_file(dst_path, fn):
                 tags.update([x.strip() for x in tag_line.split(",")])
                 continue
 
-            prev_line = line
+            m = re.match('^AUTHORS:\s*(.*)\s*$', line)
+            if m:
+                # Author lines override editors
+                if legacy_editors:
+                    editors = []
+                    legacy_editors = False
+                author_line = m.group(1).strip().replace(';', ',')
+                for author in author_line.split(","):
+                    author = author.strip()
+                    if author and author not in editors:
+                        editors.append(author)
+                continue
 
-    with open(rst_fn, 'r') as f:
-        text = f.read()
+            prev_line = line
+            lines.append(orig_line)
+
+    text = "".join(lines)
+
     if not title:
-        text = "{0}\n{1}\n\n{2}".format(basename, "="*len(basename), text)
         title = basename
+
+    authors = ", ".join(editors)
+    text = "{0}\n{1}\n\n{2}".format(title, "="*len(title), text)
+
     text = re.sub(r'`(.*?) <files/(attachments/.*?)>`__',
                   r':download:`\1 <\2>`',
                   text,
@@ -234,6 +272,8 @@ def convert_file(dst_path, fn):
     text = re.sub(r'^(\s*)..\s*raw:: latex', '\\1.. math::\\1   :nowrap:', text, flags=re.M)
     with open(rst_fn, 'w') as f:
         f.write(text)
+        if authors:
+            f.write("\n\n.. sectionauthor:: {0}".format(authors))
     del text
 
     attach_dir = os.path.join('ipython', 'attachments', basename)
@@ -283,6 +323,23 @@ def parse_wiki_legacy_tags():
                     basename = os.path.splitext(os.path.basename(fn))[0]
                     items.setdefault(basename, set()).update([x for x in tags if x])
                 continue
+
+    return items
+
+
+def parse_wiki_legacy_users():
+    items = {}
+
+    with open('wiki-legacy-users.txt', 'r') as f:
+        for line in f:
+            line = line.strip()
+            if not line or line.startswith('#'):
+                continue
+
+            page, rest = line.split(':', 1)
+            editors = [x.strip() for x in rest.split(',')]
+
+            items[page] = editors
 
     return items
 
