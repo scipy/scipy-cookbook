@@ -1,8 +1,0 @@
-[[TableOfContents]]
-
-!MayaVi2 and TVTK are part of the [http://code.enthought.com enthought tool suite].
-
-'''These instructions are out of date''', see the [http://code.enthought.com/projects/mayavi/docs/development/html/mayavi/ Mayavi2 homepage]
-
-----
-CategoryInstallation
