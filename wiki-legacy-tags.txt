@@ -18,11 +18,8 @@ Outdated
 * [[Cookbook/PIL_example]]
 * [[Cookbook/MayaVi_InstallPythonStuffFromSource]]
 
-Numpy & Scipy
-=============
-
-Tips and tricks
----------------
+Numpy
+=====
 
 * [[Cookbook/BuildingArrays|Building Arrays]] Introduction to numerical arrays.
 * [[Cookbook/Indexing|Indexing]] Indexing numpy arrays, from simple to complicated.
@@ -33,9 +30,6 @@ Tips and tricks
 * [[Cookbook/Obarray|Obarray]] Trick for avoiding object arrays when dealing with arrays of objects.
 * [[Cookbook/Recarray|Recarray]] Accessing array columns with structured arrays and recarrays.
 * [[Cookbook/AccumarrayLike|accumarray-like function]] A function that behaves like MATLAB's accumarray.
-
-Advanced topics
----------------
 
 * [[Cookbook/ViewsVsCopies|Views vs Copies]] A quick introduction to array views and some caveats on situations where you should expect a [[http://open.salon.com/blog/smebs/2011/05/16/marketing_data_box_-_complete_strategy_guide_for_smbs|data]] view or a data copy.
 
@@ -140,7 +134,9 @@ SciPy developers to ensure compatibility.
 * [[Cookbook/OldMatplotlib|Old Matplotlib recipes]]. The recipes on this page are being contributed to the Matplotlib project and will eventually be deleted from this Wiki.
 
 Mayavi
-------
+======
+
+* [[Cookbook/MayaVi|3D plotting with Mayavi]]. Advanced 3D data visualization with !MayaVi2 (and TVTK): a very powerful interactive scientific data visualizer.
 
 * [[Cookbook/MayaVi/RunningMayavi2| Running MayaVi2]] on the command line.
 
@@ -178,7 +174,7 @@ TVTK
 
 
 Matplotlib
-----------
+==========
 
 The cookbook is a place for community contributions of recipes, howtos and examples.
 
@@ -187,7 +183,7 @@ Complete documentation and tutorials for matplotlib can be found at [[http://mat
 <<BR>> <<TableOfContents>>
 
 Simple Plotting
-"""""""""""""""
+---------------
 
 * [[Cookbook/Matplotlib/SigmoidalFunctions|Sigmoidal Functions]] - plotting simple functions
   . {{attachment:sigmoids_small.png}}
@@ -222,7 +218,7 @@ Simple Plotting
 * [[Cookbook/Matplotlib_TreeMap]]
 
 Pseudo Color Plots
-""""""""""""""""""
+------------------
 
 * [[Cookbook/Matplotlib/Loading_a_colormap_dynamically|Loading a colormap dynamically]] - How to load a color map from a GMT (Generic Mapping Tools) file.
 * [[Cookbook/Matplotlib/Show_colormaps|Show colormaps]] - Small script to display all of the Matplotlib colormaps, and an exampleshowing how to create a new one.
@@ -233,14 +229,14 @@ Pseudo Color Plots
 * [[Cookbook/Matplotlib/ColormapTransformations|Transformations on Colormaps]] - how to apply a function to the look up table of a colormap and turn it into another one.
 
 Typesetting
-"""""""""""
+-----------
 
 * [[Cookbook/Matplotlib/UsingTex|Using TeX]] - formatting matplotlib text with LaTeX
   . {{attachment:tex_demo.png}}
 * [[Cookbook/Matplotlib/LaTeX_Examples|LaTeX Examples]] - Complete examples for generating publication quality figures using LaTeX.
 
 3D Plotting
-"""""""""""
+-----------
 
 ||'''NOTE:''' '''''Experimental work has been going on to integrate 3D plotting functionality into matplotlib'''''. Please see the related [[http://matplotlib.sourceforge.net/mpl_toolkits/mplot3d/index.html?highlight-mplot3d|mplot3d documentation]] or take a look at [[http://matplotlib.sourceforge.net/gallery.html|matplotlib gallery]] for example 3D plots. For a more sophisticated 3D visualization and plotting interface, you can try [[http://code.enthought.com/projects/mayavi/|Mayavi]] which is actively maintained and features an 'mlab' interface similar to matplotlib's 'pylab'. ||
 
@@ -250,7 +246,7 @@ Typesetting
   . {{attachment:mpl_vtk.png}}
 
 Embedding Plots in Apps
-"""""""""""""""""""""""
+-----------------------
 
 * [[Cookbook/Matplotlib/EmbeddingInWx|Embedding in WX]] - Advice on how to embed matplotlib figures in [[http://www.wxpython.org|wxPython]] applications.
 * [[http://agni.phys.iit.edu/~kmcivor/wxmpl|WxMpl]] - Python module for integrating matplotlib into wxPython GUIs.
@@ -261,7 +257,7 @@ Embedding Plots in Apps
 * [[Cookbook/Matplotlib_Drag_n_Drop_Text_Example]]
 
 Misc
-""""
+----
 
 * [[Cookbook/Matplotlib/LoadImage|Load and display an image]] - shows a simple way to import a PNG image to a numpy array
 * [[Cookbook/Matplotlib/Interactive_Plotting|Interactive Plotting]] - Adding mouse interaction to identify data annotations.
