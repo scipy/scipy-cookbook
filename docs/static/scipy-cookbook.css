@@ -11,15 +11,18 @@ pre.ipy-out {
     background-color: #eee;
     padding-top: 0;
     margin-top: -24px !important;
-    overflow-x: wrap;
+    overflow-x: auto;
     white-space: normal;
 }
 
-pre.ipy-out:before {
-    content: "Out []: ";
+div.ipy-out pre {
+    white-space: pre;
 }
 
-div.ipy-out pre {
+pre.ipy-out {
+    border: none !important;
+    background-color: #eee !important;
+    padding: 12px 12px !important;
     white-space: pre;
 }
 
