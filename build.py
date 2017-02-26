@@ -278,6 +278,7 @@ def convert_file(dst_path, fn, editors):
     text = re.sub(r'.. parsed-literal::', r'.. parsed-literal::\n   :class: ipy-out', text, flags=re.M)
     text = re.sub(r'`([^`<]*)\s+<(?!attachments/)([^:.>]*?)(?:.html)?>`__', r':doc:`\1 <\2>`', text, flags=re.M)
     text = re.sub(r'^(\s*)..\s*raw:: latex', '\\1.. math::\\1   :nowrap:', text, flags=re.M)
+    text = re.sub(r'\.\. code:: (ipython3|ipython2|python3|python2)', r'.. code:: python', text, flags=re.M)
     with open(rst_fn, 'w') as f:
         f.write(text)
         if authors:
