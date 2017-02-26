@@ -70,13 +70,8 @@ Root finding
 * [[Cookbook/SphericalBesselZeros|Spherical Bessel Zeros]] Finding the zeros of the spherical Bessel functions and its derivative
 * [[Cookbook/Intersection|Intersection of functions]] Compute the points at which two given functions intersect.
 
-Other examples
-==============
-
-* [[Cookbook/Rebinning|Data rebinning]] Examples of rebinning data to produce smaller arrays with and without interpolation.
-* [[Cookbook/Histograms|Histograms]] 2D histograms with variable bin width
-* [[Cookbook/Finding_Convex_Hull|Convex Hull]] Finds the convex hull around a set of data points.
-* [[Cookbook/Finding_Convex_Hull_Minimum_Point|Minimum Point of a Convex Hull]] Finds the minimum point of the convex hull of a finite set of points.
+Signal processing
+=================
 * [[Cookbook/KalmanFiltering|Kalman Filtering]] Example from the Welch & Bishop [[http://www.cs.unc.edu/~welch/kalman/kalmanIntro.html|Introduction to the Kalman Filter]].
 * [[Cookbook/CommTheory|Comm Theory]] Example of BPSK simulation.
 * [[Cookbook/SignalSmooth|Smoothing a signal]] Performing smoothing of 1D and 2D signals by convolving them with a window.
@@ -86,6 +81,15 @@ Other examples
 * [[Cookbook/FiltFilt|A zero phase delay filter]] Sample code for a null phase delay filter that processes the signal in the forward and backward direction removing the phase delay.
 * [[Cookbook/SavitzkyGolay|Savitzky Golay filtering of data]] Sample code for Savitzky Golay filtering.
 * [[Cookbook/FrequencySweptDemo|Frequency-swept signals]] Generating frequency-swept signals with chirp() and sweep_poly() from scipy.signal (SciPy 0.8)
+
+Other examples
+==============
+
+* [[Cookbook/LineIntegralConvolution|Line Integral Convolution]] code in cython for visualizing vector fields
+* [[Cookbook/Rebinning|Data rebinning]] Examples of rebinning data to produce smaller arrays with and without interpolation.
+* [[Cookbook/Histograms|Histograms]] 2D histograms with variable bin width
+* [[Cookbook/Finding_Convex_Hull|Convex Hull]] Finds the convex hull around a set of data points.
+* [[Cookbook/Finding_Convex_Hull_Minimum_Point|Minimum Point of a Convex Hull]] Finds the minimum point of the convex hull of a finite set of points.
 * [[Cookbook/Multithreading|Multithreading]] Easy multithreading for embarrassingly parallel problems
 * [[Cookbook/KDTree_example|KDTree]] Searching multidimensional space using kd-trees.
 * [[Cookbook/ParticleFilter|Particle Filter]] A simple particle filter algorithm for tracking objects in a video sequence.
@@ -125,16 +129,15 @@ released separately.  However, their developers work closely with the
 SciPy developers to ensure compatibility.
 
 * [[Cookbook/Matplotlib|Matplotlib cookbook]].  Matplotlib is the preferred package for 2D graphics.
-* [[Cookbook/MayaVi|3D plotting with Mayavi]]. Advanced 3D data visualization with !MayaVi2 (and TVTK): a very powerful interactive scientific data visualizer.
 * [[Cookbook/PIL_example|Python Imaging Library]]. Create/manipulate images as numpy array's.
 * [[Cookbook/xplt|Plotting with xplt]].  xplt is very fast but less flexible than matplotlib.  It allows simple 3-d surface visualizations as well. It is based on pygist (included) and is available under the sandbox directory in SVN scipy.
 * [[WilnaDuToit|Mat3d]]. Simple 3D plotting using an OpenGL backend.
-* [[Cookbook/LineIntegralConvolution|Line Integral Convolution]] code in cython for visualizing vector fields
-* [[vtkVolumeRendering|VTK volume rendering]]. This is a simple example that show how to use VTK to volume render your three dimensional numpy arrays.
 * [[Cookbook/OldMatplotlib|Old Matplotlib recipes]]. The recipes on this page are being contributed to the Matplotlib project and will eventually be deleted from this Wiki.
 
 Mayavi
 ======
+
+* [[Cookbook/MayaVi|3D plotting with Mayavi]]. Advanced 3D data visualization with !MayaVi2 (and TVTK): a very powerful interactive scientific data visualizer.
 
 * [[Cookbook/MayaVi|3D plotting with Mayavi]]. Advanced 3D data visualization with !MayaVi2 (and TVTK): a very powerful interactive scientific data visualizer.
 
@@ -166,8 +169,6 @@ Mayavi
 * [[Cookbook/MayaVi_examples]]
 
 
-TVTK
-""""
 * [[Cookbook/MayaVi/mlab| Mlab]]: module allowing to drive VTK from Python to do 3D plots ala matlab.
 
 * [[Cookbook/MayaVi/tvtk| tvtk]]: Traited VTK, including iVTK
@@ -295,6 +296,7 @@ Interfacing With Other Languages
 Scientific GUIs
 ===============
 
+* [[vtkVolumeRendering|VTK volume rendering]]. This is a simple example that show how to use VTK to volume render your three dimensional numpy arrays.
 * Using [[Cookbook/wxPython_dialogs|wxPython dialogs]] for simple user interaction.
 * Using [[TraitsUI]] to build interactive applications.
 
