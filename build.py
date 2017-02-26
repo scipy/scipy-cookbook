@@ -211,11 +211,9 @@ def convert_file(dst_path, fn, editors):
 
     """
     print(fn)
-    subprocess.check_call(['jupyter', 'nbconvert', '--to', 'rst',
+    subprocess.check_call(['jupyter', 'nbconvert', '--to', 'myrst.RSTExporter',
                            '--output-dir', os.path.abspath(dst_path),
-                           os.path.abspath(fn)],
-                          cwd=dst_path,
-                          stderr=subprocess.PIPE)
+                           os.path.abspath(fn)])
 
     basename = os.path.splitext(os.path.basename(fn))[0]
     rst_fn = os.path.join(dst_path, basename + '.rst')
