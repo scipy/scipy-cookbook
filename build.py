@@ -11,7 +11,6 @@ import os
 import argparse
 import subprocess
 import shutil
-import glob
 
 
 def main():
@@ -214,7 +213,7 @@ def convert_file(dst_path, fn, editors):
     subprocess.check_call(['jupyter', 'nbconvert', '--to', 'rst',
                            '--output-dir', os.path.abspath(dst_path),
                            os.path.abspath(fn)],
-                          cwd=dst_path)
+                          cwd=dst_path, stderr=subprocess.STDOUT)
 
     basename = os.path.splitext(os.path.basename(fn))[0]
     rst_fn = os.path.join(dst_path, basename + '.rst')
