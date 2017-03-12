@@ -1,5 +1,9 @@
 @import "ipython.css";
 
+#notebook-container {
+    margin-bottom: 2ex;
+}
+
 div.ipy-out div {
     border: none;
     background-color: #eee;
