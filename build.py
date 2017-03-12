@@ -11,6 +11,7 @@ import os
 import argparse
 import subprocess
 import shutil
+import lxml.html
 
 
 def main():
@@ -210,13 +211,14 @@ def convert_file(dst_path, fn, editors):
 
     """
     print(fn)
-    subprocess.check_call(['jupyter', 'nbconvert', '--to', 'rst',
+    subprocess.check_call(['jupyter', 'nbconvert', '--to', 'html',
                            '--output-dir', os.path.abspath(dst_path),
                            os.path.abspath(fn)],
                           cwd=dst_path, stderr=subprocess.STDOUT)
 
     basename = os.path.splitext(os.path.basename(fn))[0]
     rst_fn = os.path.join(dst_path, basename + '.rst')
+    html_fn = os.path.join(dst_path, basename + '.html')
 
     title = None
     tags = set()
@@ -225,41 +227,63 @@ def convert_file(dst_path, fn, editors):
 
     lines = []
 
-    with open(rst_fn, 'r') as f:
-        prev_line = ''
-        for orig_line in f:
-            line = orig_line.strip()
-            m = re.match('^===+\s*$', line)
-            m2 = re.match('^---+\s*$', line)
-            if m or m2:
-                if prev_line and len(line) >= 1+len(prev_line)//2 and not title:
-                    title = prev_line.strip()
-                lines = lines[:-1]
-                continue
+    # Parse and munge HTML
+    tree = lxml.html.parse(html_fn)
+    os.unlink(html_fn)
 
-            m = re.match('^TAGS:\s*(.*)\s*$', line)
-            if m:
-                tag_line = m.group(1).strip().replace(';', ',')
-                tags.update([x.strip() for x in tag_line.split(",")])
-                continue
+    root = tree.getroot()
+    head = root.find('head')
+    container, = root.xpath("//div[@id='notebook-container']")
 
-            m = re.match('^AUTHORS:\s*(.*)\s*$', line)
-            if m:
-                # Author lines override editors
-                if legacy_editors:
-                    editors = []
-                    legacy_editors = False
-                author_line = m.group(1).strip().replace(';', ',')
-                for author in author_line.split(","):
-                    author = author.strip()
-                    if author and author not in editors:
-                        editors.append(author)
-                continue
+    headers = container.xpath('//h1')
+    if headers:
+        title = headers[0].text
+        if isinstance(title, unicode):
+            title = title.encode('utf-8')
+        h1_parent = headers[0].getparent()
+        h1_parent.remove(headers[0])
 
-            prev_line = line
-            lines.append(orig_line)
+    lines.extend([u".. raw:: html", u""])
 
-    text = "".join(lines)
+    for element in head.getchildren():
+        if element.tag in ('script',):
+            text = lxml.html.tostring(element)
+            lines.extend("   " + x for x in text.splitlines())
+
+    text = lxml.html.tostring(container)
+
+    m = re.search(ur'<p>TAGS:\s*(.*)\s*</p>', text)
+    if m:
+        tag_line = m.group(1).strip().replace(';', ',')
+        if isinstance(tag_line, unicode):
+            tag_line = tag_line.encode('utf-8')
+        tags.update([x.strip() for x in tag_line.split(",")])
+        text = text[:m.start()] + text[m.end():]
+
+    m = re.search(ur'<p>AUTHORS:\s*(.*)\s*</p>', text)
+    if m:
+        # Author lines override editors
+        if legacy_editors:
+            editors = []
+            legacy_editors = False
+        author_line = m.group(1).strip().replace(';', ',')
+        if isinstance(author_line, unicode):
+            author_line = author_line.encode('utf-8')
+        for author in author_line.split(","):
+            author = author.strip()
+            if author and author not in editors:
+                editors.append(author)
+
+        text = text[:m.start()] + text[m.end():]
+
+    text = text.replace(u'attachments/{0}/'.format(basename),
+                        u'../_downloads/')
+
+    lines.extend(u"   " + x for x in text.splitlines())
+    lines.append(u"")
+
+    # Produce output
+    text = u"\n".join(lines).encode('utf-8')
 
     if not title:
         title = basename
@@ -267,17 +291,6 @@ def convert_file(dst_path, fn, editors):
     authors = ", ".join(editors)
     text = "{0}\n{1}\n\n{2}".format(title, "="*len(title), text)
 
-    text = re.sub(r'`(.*?) <files/(attachments/.*?)>`__',
-                  r':download:`\1 <\2>`',
-                  text,
-                  flags=re.M)
-    text = re.sub(r'^TAGS:.*$', '', text, flags=re.M)
-    text = re.sub(r'(figure|image):: files/attachments/', r'\1:: attachments/', text, flags=re.M)
-    text = re.sub(r' <files/attachments/', r' <attachments/', text, flags=re.M)
-    text = re.sub(r'.. parsed-literal::', r'.. parsed-literal::\n   :class: ipy-out', text, flags=re.M)
-    text = re.sub(r'`([^`<]*)\s+<(?!attachments/)([^:.>]*?)(?:.html)?>`__', r':doc:`\1 <\2>`', text, flags=re.M)
-    text = re.sub(r'^(\s*)\.\.\s*raw:: latex', '\\1.. math::\\1   :nowrap:', text, flags=re.M)
-    text = re.sub(r'^(\s*)\.\. code::\s*(ipython3|ipython2|python3|python2|python)?\s*$', r'\1.. code-block:: python\n', text, flags=re.M)
     with open(rst_fn, 'w') as f:
         f.write(text)
         if authors:
