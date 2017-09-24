@@ -9,6 +9,7 @@ from __future__ import absolute_import, division, print_function
 import re
 import os
 import argparse
+import datetime
 import subprocess
 import shutil
 import lxml.html
@@ -170,6 +171,7 @@ def generate_files(dst_path):
     tags = {}
 
     legacy_editors = parse_wiki_legacy_users()
+    created, modified = parse_wiki_legacy_timestamps()
 
     for fn in sorted(os.listdir('ipython')):
         if not fn.endswith('.ipynb'):
@@ -181,16 +183,25 @@ def generate_files(dst_path):
         editors = list(legacy_editors.get(basename, []))
 
         # Get names from Git
-        p = subprocess.Popen(['git', 'log', '--format=%an', 'ef45029096..', fn],
+        created_stamp = created.get(basename, 0)
+        modified_stamp = modified.get(basename, created_stamp)
+        p = subprocess.Popen(['git', 'log', '--format=%at:%an', 'ef45029096..', fn],
                                  stdout=subprocess.PIPE)
         names, _ = p.communicate()
         for name in names.splitlines():
-            name = name.strip()
+            timestamp, name = name.strip().split(':', 1)
+            timestamp = int(timestamp)
             if name and name not in editors:
                 editors.append(name)
+            if created_stamp is None:
+                created_stamp = timestamp
+            if timestamp > modified_stamp:
+                modified_stamp = timestamp
 
         # Continue
-        title, tagset = convert_file(dst_path, fn, editors)
+        title, tagset = convert_file(dst_path, fn, editors,
+                                     created_stamp,
+                                     modified_stamp)
         titles[basename] = title
         if tagset:
             tags[basename] = tagset
@@ -198,7 +209,7 @@ def generate_files(dst_path):
     return titles, tags
 
 
-def convert_file(dst_path, fn, editors):
+def convert_file(dst_path, fn, editors, created, modified):
     """
     Convert .ipynb to .rst, placing output under `dst_path`
 
@@ -288,8 +299,23 @@ def convert_file(dst_path, fn, editors):
     if not title:
         title = basename
 
+    updateinfo = ""
+
+    def fmt_time(timestamp):
+        return datetime.datetime.fromtimestamp(timestamp).strftime('%Y-%m-%d')
+
+    if created != 0 and modified != 0:
+        updateinfo = ":Date: {0} (last modified), {1} (created)".format(fmt_time(modified),
+                                                       fmt_time(created))
+    elif created != 0:
+        updateinfo = ":Date: {0} (created)".format(fmt_time(created))
+    elif modified != 0:
+        updateinfo = ":Date: {0} (last modified)".format(fmt_time(modified))
+
     authors = ", ".join(editors)
-    text = "{0}\n{1}\n\n{2}".format(title, "="*len(title), text)
+    text = "{0}\n{1}\n\n{2}\n\n{3}".format(title, "="*len(title),
+                                           updateinfo,
+                                           text)
 
     with open(rst_fn, 'w') as f:
         f.write(text)
@@ -369,6 +395,23 @@ def parse_wiki_legacy_users():
             items[page] = editors
 
     return items
+
+
+def parse_wiki_legacy_timestamps():
+    created = {}
+    modified = {}
+
+    with open('wiki-legacy-timestamps.txt', 'r') as f:
+        for line in f:
+            line = line.strip()
+            if not line or line.startswith('#'):
+                continue
+
+            page, c, m = line.split()
+            created[page] = int(c)
+            modified[page] = int(m)
+
+    return created, modified
 
 
 if __name__ == "__main__":
