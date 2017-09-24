@@ -17,6 +17,8 @@ Outdated
 * [[Cookbook/TimeSeries_FAQ]]
 * [[Cookbook/PIL_example]]
 * [[Cookbook/MayaVi_InstallPythonStuffFromSource]]
+* [[Cookbook/CompilingExtensionsOnWindowsWithMinGW]]
+* [[Cookbook/Pyrex_and_NumPy]]
 
 Numpy
 =====
