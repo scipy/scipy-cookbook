@@ -152,6 +152,8 @@ multiprocessing: Unknown[18], PauliVirtanen
 vtkVolumeRendering: Unknown[20], PauliVirtanen
 wxPython_dialogs: GabrielGellner, Unknown[150]
 xplt: TravisOliphant
+ParallelProgramming: AMArchibald, Unknown[151], Unknown[152], Unknown[153], MartinSpacek
+PerformancePython: Unknown[6], Unknown[4], DavidLinke, Unknown[154], Unknown[155], MartinSpacek, Unknown[156]
 wikis_topical_software_MatplotlibCookbook: AndrewStraw
 
 #
@@ -161,6 +163,7 @@ Unknown[2] : 1140130090.73.26701 34
 Unknown[19] : 1192792982.32.33646 33 
 Unknown[18] : 1222198261.41.13085 30 
 Unknown[33] : 1161108413.93.13451 23 
+Unknown[6] : 1136348958.12.55682 19 
 Unknown[13] : 1161122172.92.12452 18 
 Unknown[97] : 1143292253.36.33282 18 
 Unknown[141] : 1273180957.22.38451 17 
@@ -170,7 +173,6 @@ Unknown[1] : 1136350821.17.3858 14
 Unknown[5] : 1147350245.48.33297 13 
 Unknown[47] : 1205084922.92.52394 11 
 Unknown[8] : 1158133077.15.7840 11 
-Unknown[6] : 1136348958.12.55682 11 
 Unknown[15] : 1204762319.1.55436 10 
 Unknown[95] : 1139528181.75.18655 10 
 Unknown[74] : 1155134305.93.22544 9 
@@ -180,10 +182,12 @@ Unknown[16] : 1204809158.67.49889 7
 Unknown[11] : 1173198834.69.25082 7 
 Unknown[17] : 1155941540.81.54944 7 
 Unknown[3] : 1139487334.99.50561 7 
+Unknown[156] : 1257929087.73.42451 6 
 Unknown[9] : 1158098774.38.64183 6 
 Unknown[77] : 1154035039.71.41599 6 
 Unknown[60] : 1243729904.58.14443 5 
 Unknown[80] : 1234762887.66.14948 5 
+Unknown[154] : 1168079382.36.25673 5 
 Unknown[83] : 1141920306.92.21510 5 
 Unknown[46] : 1242755893.43.12185 4 
 Unknown[29] : 1178818414.24.14672 4 
@@ -205,14 +209,17 @@ Unknown[48] : 1165257394.77.27638 3
 Unknown[72] : 1154198122.95.54949 3 
 Unknown[55] : 1139176990.16.17019 3 
 Unknown[129] : 1135159993.15.48123 3 
+Unknown[4] : 1135026695.12.62922 3 
 Unknown[82] : 1309988513.98.27729 2 
 Unknown[43] : 1244511110.6.14864 2 
 Unknown[143] : 1242186055.15.3458 2 
 Unknown[89] : 1231625087.07.46719 2 Cookbook(2f)Matplotlib(2f)CompilingMatPlotLibOnSolaris10
 Unknown[61] : 1228370846.7.32755 2 
+Unknown[153] : 1225139931.59.59734 2 
 Unknown[93] : 1222182878.27.65500 2 
 Unknown[58] : 1208880410.18.31097 2 
 Unknown[126] : 1192485481.02.45422 2 
+Unknown[151] : 1191610731.18.28222 2 
 Unknown[103] : 1178427146.28.32767 2 
 Unknown[36] : 1176717370.19.8188 2 
 Unknown[133] : 1171379031.1.5592 2 
@@ -269,6 +276,8 @@ Unknown[119] : 1228360607.51.54594 1 Cookbook(2f)Matplotlib(2f)UsingTex
 Unknown[113] : 1226988042.35.46252 1 
 Unknown[59] : 1226656173.89.39060 1 
 Unknown[150] : 1225700327.55.58243 1 Cookbook(2f)wxPython_dialogs
+Unknown[152] : 1219622952.53.49139 1 
+Unknown[155] : 1208933160.91.56584 1 
 Unknown[57] : 1207325198.0.20628 1 
 Unknown[87] : 1199372458.44.702 1 Cookbook(2f)Matplotlib(2f)BarCharts
 Unknown[39] : 1194351481.19.9091 1 
@@ -306,4 +315,3 @@ Unknown[106] : 1142444931.14.20090 1
 Unknown[26] : 1139360105.85.1212 1 
 Unknown[115] : 1138659073.19.20633 1 
 Unknown[138] : 1137718487.2.45248 1 
-Unknown[4] : 1135026695.12.62922 1 
