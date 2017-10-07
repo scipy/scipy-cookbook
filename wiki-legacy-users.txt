@@ -1,6 +1,7 @@
 #
 # Full list of any page edits
 #
+ArndBaecker_MayaVi2: ArndBaecker, GaelVaroquaux
 CategoryCookbook: DavidLinke, AndrewStraw
 CategoryCookbookMatplotlib: AndrewStraw
 Cookbook: AndrewStraw, DavidLinke, TravisOliphant, jh, Unknown[1], DavidHuard, RobertCimrman, SciPyDotOrg, Unknown[2], PearuPeterson, DavidCooke, FrancescAltet, Unknown[3], Unknown[4], GaelVaroquaux, AlbertStrasheim, AngusMcMorland, Unknown[5], Unknown[6], NickFotopoulos, Unknown[7], Unknown[8], Unknown[9], Unknown[10], GabrielGellner, VincentNijs, Unknown[11], BillBaxter, MattKnox, Unknown[12], AMArchibald, FredericPetit, Unknown[13], FernandoPerez, Unknown[14], Unknown[15], Unknown[16], TimMichelsen, Unknown[17], Unknown[18], Unknown[19], PauliVirtanen, nokfi, EgorZindy, WarrenWeckesser, Unknown[20], Unknown[21], IvoMaljevic, EmmanuelleGouillart, JorgeEduardoCardona, Unknown[22], Unknown[23], Elby, ChristopherCampo, DmitriyRybalkin, WarrenWeckesser, Unknown[24], ScottSinclair, FrankBreitling
@@ -97,13 +98,13 @@ Matplotlib_mplot3D: Unknown[2], AndrewStraw, Unknown[9], Unknown[125], Unknown[1
 MayaVi: ArndBaecker, Unknown[128], Unknown[6], FredericPetit, GaelVaroquaux
 MayaVi_Examples: FredericPetit, GaelVaroquaux
 MayaVi_InstallPythonStuffFromSource: FredericPetit
-MayaVi_Installation: ArndBaecker, Unknown[6], GaelVaroquaux, FredericPetit, Unknown[129], BillBaxter, AngusMcMorland
-MayaVi_RunningMayavi2: GaelVaroquaux, FredericPetit, Unknown[130]
-MayaVi_ScriptingMayavi2: FredericPetit, Unknown[131], GaelVaroquaux, Unknown[6], Unknown[132]
+MayaVi_Installation: ArndBaecker, Unknown[6], GaelVaroquaux, FredericPetit, PauGargallo, BillBaxter, AngusMcMorland
+MayaVi_RunningMayavi2: GaelVaroquaux, FredericPetit, Unknown[129]
+MayaVi_ScriptingMayavi2: FredericPetit, Unknown[130], GaelVaroquaux, Unknown[6], Unknown[131]
 MayaVi_ScriptingMayavi2_BasicModules: FredericPetit
 MayaVi_ScriptingMayavi2_Filters: FredericPetit
 MayaVi_ScriptingMayavi2_MainModules: FredericPetit
-MayaVi_Surf: GaelVaroquaux, Unknown[41], Unknown[133]
+MayaVi_Surf: GaelVaroquaux, Unknown[41], Unknown[132]
 MayaVi_Tips: Unknown[6], GaelVaroquaux, FredericPetit
 MayaVi_examples: FredericPetit
 MayaVi_mlab: ArndBaecker, GaelVaroquaux
@@ -114,32 +115,32 @@ Multithreading: AMArchibald, DavidLinke
 OLS: VincentNijs, Unknown[103], DavidLinke, AlanLue
 Obarray: AMArchibald
 OldMatplotlib: ScottSinclair
-OptimizationAndFitDemo1: SciPyDotOrg, Unknown[1], Unknown[134], PauliVirtanen
-OptimizationDemo1: SciPyDotOrg, Unknown[135], Unknown[136], Unknown[137]
-PIL: Unknown[7], LaurentPerrinet
+OptimizationAndFitDemo1: SciPyDotOrg, Unknown[1], Unknown[133], PauliVirtanen
+OptimizationDemo1: SciPyDotOrg, Unknown[134], Unknown[135], Unknown[136]
+PIL_example: Unknown[7], LaurentPerrinet
 ParticleFilter: Unknown[19], BAlexRobinson
-Pyrex_and_NumPy: AndrewStraw, DavidLinke, Unknown[138], Unknown[25], FernandoPerez
+Pyrex_and_NumPy: AndrewStraw, DavidLinke, Unknown[137], Unknown[25], FernandoPerez
 RANSAC: AndrewStraw, DatChu
 RadialBasisFunctions: Unknown[13], ScottSinclair
 RankNullspace: WarrenWeckesser
 Reading_Custom_Text_Files_with_Pyparsing: Elby
-Reading_SPE_files: Unknown[21], Unknown[139]
+Reading_SPE_files: Unknown[21], Unknown[138]
 Reading_mat_files: Unknown[16], DavidPowell
-Rebinning: Unknown[3], DavidLinke, AngusMcMorland, Unknown[129]
+Rebinning: Unknown[3], DavidLinke, AngusMcMorland, PauGargallo
 Recarray: jh, TimMichelsen
 SWIG_Memory_Deallocation: EgorZindy
 SWIG_NumPy_examples: EgorZindy
 SWIG_and_NumPy: RobertCimrman, AndrewStraw, FernandoPerez, WilliamHunter
-SavitzkyGolay: Unknown[11], Unknown[140], Unknown[141], Unknown[142], WarrenWeckesser, WarrenWeckesser, thomas.haslwanter
+SavitzkyGolay: Unknown[11], Unknown[139], Unknown[140], Unknown[141], WarrenWeckesser, WarrenWeckesser, thomas.haslwanter
 SchrodingerFDTD: FernandoPerez, JamesNagel
 SegmentAxis: AMArchibald
-SignalSmooth: Unknown[1], GaelVaroquaux, Unknown[143], Unknown[144], Unknown[145], Unknown[146], Unknown[147], Unknown[148], WesTurner
+SignalSmooth: Unknown[1], GaelVaroquaux, Unknown[142], Unknown[143], Unknown[144], Unknown[145], Unknown[146], Unknown[147], WesTurner
 Solving_Large_Markov_Chains: nokfi
 SphericalBesselZeros: FredericPetit, GaelVaroquaux
 Theoretical_Ecology: GabrielGellner
 Theoretical_Ecology_Hastings_and_Powell: GabrielGellner, WarrenWeckesser
 TimeSeries: TimMichelsen, MattKnox
-TimeSeries_FAQ: TimMichelsen, MattKnox, Unknown[149]
+TimeSeries_FAQ: TimMichelsen, MattKnox, Unknown[148]
 ViewsVsCopies: FrancescAltet, Unknown[16], WarrenWeckesser
 Watershed: EmmanuelleGouillart, DavidLinke
 Weave: Unknown[17], DavidLinke, WarrenWeckesser
@@ -150,86 +151,103 @@ hdf5_in_Matlab: GaelVaroquaux, PauliVirtanen
 mplot3D: AndrewStraw
 multiprocessing: Unknown[18], PauliVirtanen
 vtkVolumeRendering: Unknown[20], PauliVirtanen
-wxPython_dialogs: GabrielGellner, Unknown[150]
+wxPython_dialogs: GabrielGellner, Unknown[149]
 xplt: TravisOliphant
-ParallelProgramming: AMArchibald, Unknown[151], Unknown[152], Unknown[153], MartinSpacek
-PerformancePython: Unknown[6], Unknown[4], DavidLinke, Unknown[154], Unknown[155], MartinSpacek, Unknown[156]
+Developer_Zone_Conferences_SciPy2005_Abstracts_AutoDockTools: SteveRogers
+DocTools: EricsBroadcastingDoc
+Dynetrekk_f2py_OpenMP_draft: Dynetrekk
+EnthoughtToolSuiteNotes: Unknown[47]
+F2PY_Windows: Unknown[150], DavidLinke, Unknown[18]
+F2py: PearuPeterson, Unknown[150], Unknown[67], Unknown[53], mauro, Unknown[148]
+LoktaVolterraTutorial: PauliVirtanen
+MatrixIndexing: Unknown[151], StefanVanDerWalt, GaelVaroquaux, Unknown[152], AMArchibald
+ParallelProgramming: AMArchibald, Unknown[153], Unknown[154], Unknown[155], MartinSpacek
+PauGargallo_Interpolation: PauGargallo
+PerformancePython: Unknown[6], Unknown[4], DavidLinke, Unknown[156], Unknown[157], MartinSpacek, Unknown[158]
+RadialBasisFunctions: Unknown[13]
+Weave: Unknown[6], DavidCooke, TravisOliphant, Unknown[159], Unknown[160], Unknown[161], Unknown[162], FernandoPerez, Unknown[17], PauliVirtanen
+vtkVolumeRendering: PauliVirtanen
 wikis_topical_software_MatplotlibCookbook: AndrewStraw
 
 #
 # Unresolved users
 #
+Unknown[151] : 1161279420.51.12642 36 
 Unknown[2] : 1140130090.73.26701 34 
 Unknown[19] : 1192792982.32.33646 33 
-Unknown[18] : 1222198261.41.13085 30 
+Unknown[18] : 1222198261.41.13085 31 F2PY_Windows
+Unknown[47] : 1205084922.92.52394 29 EnthoughtToolSuiteNotes
 Unknown[33] : 1161108413.93.13451 23 
-Unknown[6] : 1136348958.12.55682 19 
-Unknown[13] : 1161122172.92.12452 18 
+Unknown[6] : 1136348958.12.55682 20 
+Unknown[13] : 1161122172.92.12452 19 RadialBasisFunctions
 Unknown[97] : 1143292253.36.33282 18 
-Unknown[141] : 1273180957.22.38451 17 
+Unknown[140] : 1273180957.22.38451 17 
 Unknown[14] : 1179946959.18.31559 17 
 Unknown[117] : 1138209848.28.23719 15 
 Unknown[1] : 1136350821.17.3858 14 
 Unknown[5] : 1147350245.48.33297 13 
-Unknown[47] : 1205084922.92.52394 11 
+Unknown[150] : 1191633763.4.65468 12 
 Unknown[8] : 1158133077.15.7840 11 
 Unknown[15] : 1204762319.1.55436 10 
 Unknown[95] : 1139528181.75.18655 10 
 Unknown[74] : 1155134305.93.22544 9 
 Unknown[79] : 1242323478.43.45455 8 
+Unknown[17] : 1155941540.81.54944 8 
 Unknown[21] : 1138810091.99.5126 8 
 Unknown[16] : 1204809158.67.49889 7 
 Unknown[11] : 1173198834.69.25082 7 
-Unknown[17] : 1155941540.81.54944 7 
 Unknown[3] : 1139487334.99.50561 7 
-Unknown[156] : 1257929087.73.42451 6 
+Unknown[158] : 1257929087.73.42451 6 
 Unknown[9] : 1158098774.38.64183 6 
 Unknown[77] : 1154035039.71.41599 6 
 Unknown[60] : 1243729904.58.14443 5 
 Unknown[80] : 1234762887.66.14948 5 
-Unknown[154] : 1168079382.36.25673 5 
+Unknown[156] : 1168079382.36.25673 5 
 Unknown[83] : 1141920306.92.21510 5 
+Unknown[53] : 1140542637.91.49174 5 
 Unknown[46] : 1242755893.43.12185 4 
 Unknown[29] : 1178818414.24.14672 4 
 Unknown[91] : 1156890439.37.27001 4 
-Unknown[53] : 1140542637.91.49174 4 
 Unknown[41] : 1140488813.94.58687 4 
 Unknown[20] : 1234729385.77.32045 3 
 Unknown[68] : 1223297145.9.1273 3 
-Unknown[136] : 1223166437.15.27477 3 
+Unknown[135] : 1223166437.15.27477 3 
 Unknown[78] : 1206041838.96.56176 3 
 Unknown[42] : 1205864128.22.37057 3 
-Unknown[135] : 1204345959.51.62239 3 
+Unknown[134] : 1204345959.51.62239 3 
 Unknown[112] : 1199767581.9.44453 3 
 Unknown[30] : 1191908698.42.30538 3 
 Unknown[38] : 1188921502.56.52738 3 
-Unknown[140] : 1188141438.63.29340 3 
+Unknown[139] : 1188141438.63.29340 3 
 Unknown[118] : 1173824980.6.46169 3 
+Unknown[67] : 1173511338.97.48604 3 
 Unknown[48] : 1165257394.77.27638 3 
 Unknown[72] : 1154198122.95.54949 3 
 Unknown[55] : 1139176990.16.17019 3 
-Unknown[129] : 1135159993.15.48123 3 
 Unknown[4] : 1135026695.12.62922 3 
 Unknown[82] : 1309988513.98.27729 2 
 Unknown[43] : 1244511110.6.14864 2 
-Unknown[143] : 1242186055.15.3458 2 
+Unknown[142] : 1242186055.15.3458 2 
 Unknown[89] : 1231625087.07.46719 2 Cookbook(2f)Matplotlib(2f)CompilingMatPlotLibOnSolaris10
+Unknown[148] : 1228474251.66.16423 2 F2py
 Unknown[61] : 1228370846.7.32755 2 
-Unknown[153] : 1225139931.59.59734 2 
+Unknown[155] : 1225139931.59.59734 2 
 Unknown[93] : 1222182878.27.65500 2 
 Unknown[58] : 1208880410.18.31097 2 
 Unknown[126] : 1192485481.02.45422 2 
-Unknown[151] : 1191610731.18.28222 2 
+Unknown[153] : 1191610731.18.28222 2 
 Unknown[103] : 1178427146.28.32767 2 
 Unknown[36] : 1176717370.19.8188 2 
-Unknown[133] : 1171379031.1.5592 2 
+Unknown[152] : 1175741078.29.33386 2 
+Unknown[132] : 1171379031.1.5592 2 
 Unknown[102] : 1170753203.97.51058 2 
 Unknown[90] : 1167764826.08.29354 2 
 Unknown[52] : 1164898028.61.3834 2 
 Unknown[7] : 1156064879.45.1190 2 
 Unknown[123] : 1152096074.52.52535 2 
-Unknown[131] : 1151014466.92.37080 2 
+Unknown[130] : 1151014466.92.37080 2 
 Unknown[121] : 1147521195.57.17251 2 Cookbook(2f)Matplotlib(2f)Using_MatPlotLib_in_a_CGI_script
+Unknown[159] : 1141357700.32.2276 2 
 Unknown[25] : 1141166629.43.46004 2 
 Unknown[128] : 1141146598.71.5390 2 
 Unknown[75] : 1139445586.22.14441 2 
@@ -239,23 +257,23 @@ Unknown[76] : 1136844369.67.33708 2
 Unknown[88] : 1351000486.29.28731 1 Cookbook(2f)Matplotlib(2f)ColormapTransformations
 Unknown[45] : 1348862213.57.35278 1 Cookbook(2f)DataFrame
 Unknown[110] : 1340223964.94.14303 1 Cookbook(2f)Matplotlib(2f)Multiple_Subplots_with_One_Axis_Label
-Unknown[148] : 1339576132.61.41342 1 
+Unknown[147] : 1339576132.61.41342 1 
 Unknown[111] : 1339334395.73.23746 1 Cookbook(2f)Matplotlib(2f)PySide
 Unknown[114] : 1338983366.0.36633 1 Cookbook(2f)Matplotlib(2f)Show_colormaps
-Unknown[147] : 1337175747.9.58342 1 
+Unknown[146] : 1337175747.9.58342 1 
 Unknown[109] : 1317264548.76.61160 1 
 Unknown[98] : 1315401645.47.50771 1 Cookbook(2f)Matplotlib(2f)Gridding_irregularly_spaced_data
 Unknown[24] : 1312488821.37.65223 1 
-Unknown[146] : 1309026029.66.16019 1 
+Unknown[145] : 1309026029.66.16019 1 
 Unknown[51] : 1308857579.78.32484 1 
 Unknown[105] : 1293520482.71.32540 1 Cookbook(2f)Matplotlib(2f)Maps
-Unknown[145] : 1291737170.42.11668 1 
-Unknown[139] : 1291378670.79.3816 1 Cookbook(2f)Reading_SPE_files
+Unknown[144] : 1291737170.42.11668 1 
+Unknown[138] : 1291378670.79.3816 1 Cookbook(2f)Reading_SPE_files
 Unknown[23] : 1281690329.66.27462 1 
 Unknown[40] : 1277025332.07.57219 1 Cookbook(2f)C_Extensions(2f)NumPy_arrays
 Unknown[116] : 1276706613.92.4834 1 Cookbook(2f)Matplotlib(2f)Transformations
 Unknown[54] : 1276431608.81.29886 1 
-Unknown[142] : 1273566762.86.32354 1 
+Unknown[141] : 1273566762.86.32354 1 
 Unknown[44] : 1273240225.9.37132 1 
 Unknown[32] : 1272892412.29.30947 1 
 Unknown[108] : 1269198784.31.17690 1 Cookbook(2f)Matplotlib(2f)MulticoloredLine
@@ -267,17 +285,16 @@ Unknown[64] : 1262548405.57.32352 1
 Unknown[86] : 1258995427.6.55502 1 
 Unknown[122] : 1258476330.07.38021 1 Cookbook(2f)Matplotlib(2f)VTK_Integration
 Unknown[127] : 1250078377.36.57048 1 
-Unknown[144] : 1250075664.5.24994 1 
+Unknown[143] : 1250075664.5.24994 1 
 Unknown[104] : 1247336133.43.17888 1 
 Unknown[124] : 1235647635.43.28351 1 Cookbook(2f)Matplotlib(2f)converting_a_matrix_to_a_raster_image
 Unknown[31] : 1229538449.31.14493 1 
-Unknown[149] : 1228474251.66.16423 1 Cookbook(2f)TimeSeries(2f)FAQ
 Unknown[119] : 1228360607.51.54594 1 Cookbook(2f)Matplotlib(2f)UsingTex
 Unknown[113] : 1226988042.35.46252 1 
 Unknown[59] : 1226656173.89.39060 1 
-Unknown[150] : 1225700327.55.58243 1 Cookbook(2f)wxPython_dialogs
-Unknown[152] : 1219622952.53.49139 1 
-Unknown[155] : 1208933160.91.56584 1 
+Unknown[149] : 1225700327.55.58243 1 Cookbook(2f)wxPython_dialogs
+Unknown[154] : 1219622952.53.49139 1 
+Unknown[157] : 1208933160.91.56584 1 
 Unknown[57] : 1207325198.0.20628 1 
 Unknown[87] : 1199372458.44.702 1 Cookbook(2f)Matplotlib(2f)BarCharts
 Unknown[39] : 1194351481.19.9091 1 
@@ -288,30 +305,32 @@ Unknown[125] : 1175352843.3.28130 1
 Unknown[49] : 1175163835.2.54361 1 
 Unknown[35] : 1174534429.91.32884 1 
 Unknown[12] : 1173795126.22.20717 1 
-Unknown[67] : 1173511338.97.48604 1 
 Unknown[34] : 1173445984.33.56487 1 
-Unknown[132] : 1172118920.23.14034 1 
+Unknown[131] : 1172118920.23.14034 1 
 Unknown[85] : 1171940714.41.42630 1 
-Unknown[137] : 1171911351.82.53596 1 Cookbook(2f)OptimizationDemo1
-Unknown[130] : 1170211666.59.6264 1 
+Unknown[136] : 1171911351.82.53596 1 Cookbook(2f)OptimizationDemo1
+Unknown[129] : 1170211666.59.6264 1 
 Unknown[56] : 1169597128.87.8734 1 
 Unknown[62] : 1169144869.41.54841 1 
+Unknown[161] : 1166879697.41.9398 1 
 Unknown[107] : 1165252184.8.33862 1 Cookbook(2f)Matplotlib(2f)Matplotlib_and_Zope
 Unknown[84] : 1160121047.97.39235 1 
 Unknown[120] : 1159215341.06.12896 1 
 Unknown[10] : 1157542383.05.39060 1 
 Unknown[101] : 1155842880.41.42294 1 
+Unknown[162] : 1155666157.42.17885 1 
 Unknown[73] : 1154941149.34.45916 1 
+Unknown[160] : 1153779173.41.36940 1 
 Unknown[71] : 1152663133.76.24476 1 
 Unknown[96] : 1149521522.62.1783 1 
 Unknown[27] : 1148246637.84.22334 1 
 Unknown[28] : 1147816767.94.8167 1 
 Unknown[66] : 1146089022.83.54452 1 
-Unknown[134] : 1145865296.79.2272 1 
+Unknown[133] : 1145865296.79.2272 1 
 Unknown[94] : 1145507424.39.24426 1 Cookbook(2f)Matplotlib(2f)EmbeddingInWx
 Unknown[63] : 1144895289.68.43531 1 
 Unknown[99] : 1144849095.75.42298 1 
 Unknown[106] : 1142444931.14.20090 1 
 Unknown[26] : 1139360105.85.1212 1 
 Unknown[115] : 1138659073.19.20633 1 
-Unknown[138] : 1137718487.2.45248 1 
+Unknown[137] : 1137718487.2.45248 1 

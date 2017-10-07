@@ -7,6 +7,7 @@ from __future__ import absolute_import, print_function, division
 import os
 import re
 import sys
+import glob
 from HTMLParser import HTMLParser
 
 
@@ -15,7 +16,10 @@ def main():
 
     users = {}
     pages = {}
-    
+
+    ipython_pages = [os.path.splitext(os.path.basename(fn))[0].lower()
+                     for fn in glob.glob('ipython/*.ipynb')]
+
     # Gather authors
     for root, dirs, files in os.walk(path):
         for d in dirs:
@@ -47,7 +51,7 @@ def main():
                             break
                     break
 
-            if 'Cookbook' in d or 'PerformancePython' in d or 'ParallelProgramming' in d:
+            if 'Cookbook' in d or any(p in d.lower().replace('(2f)', '_') for p in ipython_pages):
                 for item in log_items:
                     pages.setdefault(d, []).append(item[6])
 
@@ -109,6 +113,8 @@ def main():
     users['1139447249.42.46498'] = 'RobManagan'
     users['1246487580.75.24764'] = 'MarshallPerrin'
     users['1340544644.02.6056'] = 'WesTurner'
+    users['1135159993.15.48123'] = 'PauGargallo'
+    users['1284282557.35.24286'] = 'Dynetrekk'
 
     # Print results
     unknowns = {}
@@ -116,6 +122,12 @@ def main():
 
     unknown_counter = 1
     unknown_names = {}
+
+    print("#\n# Full list of any page edits\n#")
+
+    page_map = {
+        'PIL': 'PIL_example',
+    }
 
     for page, uids in sorted(pages.items()):
         editors = []
@@ -143,9 +155,11 @@ def main():
         page = page.replace('(2f)', '/')
         page = page.replace('Cookbook/', '')
         page = page.replace('/', '_')
+        page = page_map.get(page, page)
         print("{0}: {1}".format(page, ", ".join(editors)))
 
     # Sort by unknown
+    print("\n#\n# Unresolved users\n#")
     items = sorted(unknowns.items(), key=lambda x: (x[1], x), reverse=True)
     for uid, count in items:
         print(unknown_names[uid], ":", uid, count, page_uid.get(uid, ''))
