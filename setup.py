@@ -4,6 +4,8 @@ import sys
 import subprocess
 
 if sys.argv[1:2] == ['install']:
+    subprocess.call(['git', 'fetch', '--unshallow'],
+                    cwd=os.path.abspath(os.path.dirname(__file__)))
     subprocess.check_call([sys.executable, 'build.py'],
                           cwd=os.path.abspath(os.path.dirname(__file__)))
 else:
