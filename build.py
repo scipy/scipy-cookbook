@@ -39,6 +39,9 @@ def main():
     shutil.copytree('ipython', dst_path_ipynb,
                     ignore=lambda src, names: [x for x in names if not x.endswith('.ipynb')])
 
+    shutil.copytree(os.path.join('ipython', 'attachments'),
+                    os.path.join(dst_path_ipynb, 'attachments'))
+
     tags = parse_wiki_legacy_tags()
     titles, tags_new = generate_files(dst_path=dst_path)
 
@@ -282,7 +285,7 @@ def convert_file(dst_path, fn, editors, created, modified):
         text = text[:m.start()] + text[m.end():]
 
     text = text.replace('attachments/{0}/'.format(basename),
-                        '../_downloads/')
+                        '../_static/items/attachments/{0}/'.format(basename))
 
     lines.extend("   " + x for x in text.splitlines())
     lines.append("")
