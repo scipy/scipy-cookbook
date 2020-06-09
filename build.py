@@ -1,10 +1,10 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """
 build.py
 
 Build HTML output
 """
-from __future__ import absolute_import, division, print_function
+
 
 import re
 import os
@@ -122,7 +122,7 @@ def write_index(dst_path, titles, tags):
             for fn in non_idx_items:
                 index_text.append(":doc:`{0} <items/{1}>`\n".format(titles[fn], fn))
 
-        with open(section_fn, 'w') as f:
+        with open(section_fn, 'w', encoding='utf-8') as f:
             sec_title = titles.get(section_base_fn, tag_id)
             f.write("{0}\n{1}\n\n".format(sec_title, "="*len(sec_title)))
 
@@ -143,7 +143,7 @@ def write_index(dst_path, titles, tags):
                 f.write("   {0}\n".format(fn))
 
     # Write index
-    with open(index_rst, 'w') as f:
+    with open(index_rst, 'w', encoding='utf-8') as f:
         f.write(".. toctree::\n"
                 "   :maxdepth: 1\n"
                 "   :hidden:\n\n")
@@ -186,7 +186,7 @@ def generate_files(dst_path):
         created_stamp = created.get(basename, 0)
         modified_stamp = modified.get(basename, created_stamp)
         p = subprocess.Popen(['git', 'log', '--format=%at:%an', 'ef45029096..', fn],
-                                 stdout=subprocess.PIPE)
+                             stdout=subprocess.PIPE, encoding='utf-8')
         names, _ = p.communicate()
         for name in names.splitlines():
             timestamp, name = name.strip().split(':', 1)
@@ -249,37 +249,31 @@ def convert_file(dst_path, fn, editors, created, modified):
     headers = container.xpath('//h1')
     if headers:
         title = headers[0].text
-        if isinstance(title, unicode):
-            title = title.encode('utf-8')
         h1_parent = headers[0].getparent()
         h1_parent.remove(headers[0])
 
-    lines.extend([u".. raw:: html", u""])
+    lines.extend([".. raw:: html", ""])
 
     for element in head.getchildren():
         if element.tag in ('script',):
-            text = lxml.html.tostring(element)
+            text = lxml.html.tostring(element, encoding='utf-8').decode('utf-8')
             lines.extend("   " + x for x in text.splitlines())
 
-    text = lxml.html.tostring(container)
+    text = lxml.html.tostring(container, encoding='utf-8').decode('utf-8')
 
-    m = re.search(ur'<p>TAGS:\s*(.*)\s*</p>', text)
+    m = re.search(r'<p>TAGS:\s*(.*)\s*</p>', text)
     if m:
         tag_line = m.group(1).strip().replace(';', ',')
-        if isinstance(tag_line, unicode):
-            tag_line = tag_line.encode('utf-8')
         tags.update([x.strip() for x in tag_line.split(",")])
         text = text[:m.start()] + text[m.end():]
 
-    m = re.search(ur'<p>AUTHORS:\s*(.*)\s*</p>', text)
+    m = re.search(r'<p>AUTHORS:\s*(.*)\s*</p>', text)
     if m:
         # Author lines override editors
         if legacy_editors:
             editors = []
             legacy_editors = False
         author_line = m.group(1).strip().replace(';', ',')
-        if isinstance(author_line, unicode):
-            author_line = author_line.encode('utf-8')
         for author in author_line.split(","):
             author = author.strip()
             if author and author not in editors:
@@ -287,14 +281,14 @@ def convert_file(dst_path, fn, editors, created, modified):
 
         text = text[:m.start()] + text[m.end():]
 
-    text = text.replace(u'attachments/{0}/'.format(basename),
-                        u'../_downloads/')
+    text = text.replace('attachments/{0}/'.format(basename),
+                        '../_downloads/')
 
-    lines.extend(u"   " + x for x in text.splitlines())
-    lines.append(u"")
+    lines.extend("   " + x for x in text.splitlines())
+    lines.append("")
 
     # Produce output
-    text = u"\n".join(lines).encode('utf-8')
+    text = "\n".join(lines)
 
     if not title:
         title = basename
@@ -317,7 +311,7 @@ def convert_file(dst_path, fn, editors, created, modified):
                                            updateinfo,
                                            text)
 
-    with open(rst_fn, 'w') as f:
+    with open(rst_fn, 'w', encoding='utf-8') as f:
         f.write(text)
         if authors:
             f.write("\n\n.. sectionauthor:: {0}".format(authors))
@@ -325,7 +319,7 @@ def convert_file(dst_path, fn, editors, created, modified):
 
     attach_dir = os.path.join('ipython', 'attachments', basename)
     if os.path.isdir(attach_dir) and len(os.listdir(attach_dir)) > 0:
-        with open(rst_fn, 'a') as f:
+        with open(rst_fn, 'a', encoding='utf-8') as f:
             f.write("""
 
 .. rubric:: Attachments
@@ -343,7 +337,7 @@ def parse_wiki_legacy_tags():
     tags = [None, None, None]
     items = {}
 
-    with open('wiki-legacy-tags.txt', 'r') as f:
+    with open('wiki-legacy-tags.txt', 'r', encoding='utf-8') as f:
         prev_line = None
 
         for line in f:
@@ -383,7 +377,7 @@ def parse_wiki_legacy_tags():
 def parse_wiki_legacy_users():
     items = {}
 
-    with open('wiki-legacy-users.txt', 'r') as f:
+    with open('wiki-legacy-users.txt', 'r', encoding='utf-8') as f:
         for line in f:
             line = line.strip()
             if not line or line.startswith('#'):
@@ -401,7 +395,7 @@ def parse_wiki_legacy_timestamps():
     created = {}
     modified = {}
 
-    with open('wiki-legacy-timestamps.txt', 'r') as f:
+    with open('wiki-legacy-timestamps.txt', 'r', encoding='utf-8') as f:
         for line in f:
             line = line.strip()
             if not line or line.startswith('#'):

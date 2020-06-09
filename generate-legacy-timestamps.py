@@ -41,4 +41,4 @@ for fn in os.listdir('ipython'):
             continue
         timestamps.append(int(float(line[0]) / 1e6))
 
-    print(base, min(timestamps), max(timestamps))
+    print((base, min(timestamps), max(timestamps)))

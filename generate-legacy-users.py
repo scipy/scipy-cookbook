@@ -2,13 +2,13 @@
 generate-legacy-users.py WIKI_PAGES_PATH
 
 """
-from __future__ import absolute_import, print_function, division
+
 
 import os
 import re
 import sys
 import glob
-from HTMLParser import HTMLParser
+from html.parser import HTMLParser
 
 
 def main():
@@ -160,7 +160,7 @@ def main():
 
     # Sort by unknown
     print("\n#\n# Unresolved users\n#")
-    items = sorted(unknowns.items(), key=lambda x: (x[1], x), reverse=True)
+    items = sorted(list(unknowns.items()), key=lambda x: (x[1], x), reverse=True)
     for uid, count in items:
         print(unknown_names[uid], ":", uid, count, page_uid.get(uid, ''))
 
