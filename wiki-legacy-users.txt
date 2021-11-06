@@ -52,7 +52,7 @@ Least_Squares_Circle: Elby
 LineIntegralConvolution: AMArchibald
 LinearClassification: DmitriyRybalkin
 LinearRegression: Unknown[1], Unknown[66], TimCera
-LoktaVolterraTutorial: Elby, Unknown[67], Unknown[68], PauliVirtanen, nokfi, Unknown[69], ChristopherCampo
+LotkaVolterraTutorial: Elby, Unknown[67], Unknown[68], PauliVirtanen, nokfi, Unknown[69], ChristopherCampo
 Matplotlib: AndrewStraw, Unknown[70], TravisOliphant, MichaelMcNeilForbes, GaelVaroquaux, Unknown[71], Unknown[72], Unknown[73], Unknown[74], Unknown[9], LaurentPerrinet, Unknown[75], AngusMcMorland, Unknown[76], MattKnox, Unknown[77], FredericPetit, jesrl, Unknown[78], TimMichelsen, Unknown[47], WarrenWeckesser, Unknown[79], Unknown[80], LevGivon, Unknown[81], Unknown[82], FrankBreitling
 Matplotlib_AdjustingImageSize: AndrewStraw, MartinSpacek, Unknown[75], TimSwast
 Matplotlib_Animations: AndrewStraw, Unknown[83], Unknown[84], Unknown[85], Unknown[86], KristjanOnu, WarrenWeckesser
@@ -159,7 +159,7 @@ Dynetrekk_f2py_OpenMP_draft: Dynetrekk
 EnthoughtToolSuiteNotes: Unknown[47]
 F2PY_Windows: Unknown[150], DavidLinke, Unknown[18]
 F2py: PearuPeterson, Unknown[150], Unknown[67], Unknown[53], mauro, Unknown[148]
-LoktaVolterraTutorial: PauliVirtanen
+LotkaVolterraTutorial: PauliVirtanen
 MatrixIndexing: Unknown[151], StefanVanDerWalt, GaelVaroquaux, Unknown[152], AMArchibald
 ParallelProgramming: AMArchibald, Unknown[153], Unknown[154], Unknown[155], MartinSpacek
 PauGargallo_Interpolation: PauGargallo
