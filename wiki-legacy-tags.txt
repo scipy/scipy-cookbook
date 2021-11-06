@@ -62,7 +62,7 @@ Ordinary differential equations
 
 * [[Cookbook/Zombie_Apocalypse_ODEINT|Zombie Apocalypse ODE Modeling]] Modeling a Zombie Apocalypse by solving a system of ordinary differential equations using the SciPy routine, ''odeint''.
 * [[Cookbook/CoupledSpringMassSystem|A coupled spring-mass system]] Another example of solving differential equations.
-* [[LoktaVolterraTutorial|Lotka-Volterra Tutorial]] Solving ordinary differential equations with Scipy
+* [[LotkaVolterraTutorial|Lotka-Volterra Tutorial]] Solving ordinary differential equations with Scipy
 * [[Cookbook/KdV|KdV]] Solving the Korteweg-deVries equation on a periodic domain using the pseudo-spectral method with the method of lines.
 * [[Cookbook/Theoretical_Ecology/Hastings_and_Powell|Hastings and Powell food chain model]]
 

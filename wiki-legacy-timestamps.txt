@@ -46,7 +46,7 @@ Least_Squares_Circle 1300572242 1300824517
 LinearClassification 1306632239 1306641946
 LinearRegression 1139159780 1156206775
 LineIntegralConvolution 1227018426 1227019747
-LoktaVolterraTutorial 1194799996 1303675500
+LotkaVolterraTutorial 1194799996 1303675500
 Matplotlib_AdjustingImageSize 1137963333 1316810855
 Matplotlib_Animations 1137958878 1336916269
 Matplotlib_Arrows 1196972807 1196972822
