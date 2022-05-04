@@ -10,3 +10,4 @@
 /docs/static/items
 /ipython/.ipynb_checkpoints
 .DS_Store
+*.bz2
