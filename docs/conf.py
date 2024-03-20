@@ -108,7 +108,10 @@ if not on_rtd:  # only import and set the theme if we're building docs locally
     html_theme = 'sphinx_rtd_theme'
     html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
     def setup(app):
-        app.add_stylesheet('scipy-cookbook.css')
+        try:
+            app.add_stylesheet('scipy-cookbook.css')
+        except AttributeError:
+            app.add_css_file('scipy-cookbook.css')
 else:
     html_context = {
         'css_files': [
