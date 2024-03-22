@@ -247,7 +247,10 @@ def convert_file(dst_path, fn, editors, created, modified):
 
     root = tree.getroot()
     head = root.find('head')
-    container, = root.xpath("//div[@id='notebook-container']")
+    try:
+        container, = root.xpath("//div[@id='notebook-container']")
+    except ValueError:
+        container, = root.xpath("//body[@class='jp-Notebook']")
 
     headers = container.xpath('//h1')
     if headers:
@@ -344,18 +347,18 @@ def parse_wiki_legacy_tags():
         prev_line = None
 
         for line in f:
-            if re.match('^====+\s*$', line):
+            if re.match(r'^====+\s*$', line):
                 tags[0] = prev_line.strip()
                 tags[1] = None
                 tags[2] = None
                 continue
 
-            if re.match('^----+\s*$', line):
+            if re.match(r'^----+\s*$', line):
                 tags[1] = prev_line.strip()
                 tags[2] = None
                 continue
 
-            if re.match('^""""+\s*$', line):
+            if re.match(r'^""""+\s*$', line):
                 tags[2] = prev_line.strip()
                 continue
 
