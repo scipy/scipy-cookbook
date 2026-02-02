@@ -151,7 +151,7 @@ def test():
     B_exact = scipy.dot(A_exact,perfect_fit)
     assert B_exact.shape == (n_samples,n_outputs)
 
-    # add a little gaussian noise (linear least squares alone should handle this well)
+    # add a little Gaussian noise (linear least squares alone should handle this well)
     A_noisy = A_exact + numpy.random.normal(size=A_exact.shape )
     B_noisy = B_exact + numpy.random.normal(size=B_exact.shape )
 
