@@ -6,7 +6,7 @@ from scipy import stats
 
 def moments(data,circle,rotate,vheight):
     """Returns (height, amplitude, x, y, width_x, width_y, rotation angle)
-    the gaussian parameters of a 2D distribution by calculating its
+    the Gaussian parameters of a 2D distribution by calculating its
     moments.  Depending on the input parameters, will only output 
     a subset of the above"""
     total = data.sum()
@@ -32,7 +32,7 @@ def moments(data,circle,rotate,vheight):
     return tuple(mylist)
 
 def twodgaussian(inpars, circle, rotate, vheight):
-    """Returns a 2d gaussian function of the form:
+    """Returns a 2d Gaussian function of the form:
         x' = cos(rota) * x - sin(rota) * y
         y' = sin(rota) * x + cos(rota) * y
         (rota should be in degrees)
@@ -46,9 +46,9 @@ def twodgaussian(inpars, circle, rotate, vheight):
         inpars = (height,amplitude,center_x,center_y,width_x,width_y,rota)
 
         You can choose to ignore / neglect some of the above input parameters using the following options:
-            circle=0 - default is an elliptical gaussian (different x, y widths), but can reduce
-                the input by one parameter if it's a circular gaussian
-            rotate=1 - default allows rotation of the gaussian ellipse.  Can remove last parameter
+            circle=0 - default is an elliptical Gaussian (different x, y widths), but can reduce
+                the input by one parameter if it's a circular Gaussian
+            rotate=1 - default allows rotation of the Gaussian ellipse.  Can remove last parameter
                 by setting rotate=0
             vheight=1 - default allows a variable height-above-zero, i.e. an additive constant
                 for the Gaussian function.  Can remove first parameter by setting this to 0
@@ -99,7 +99,7 @@ def twodgaussian(inpars, circle, rotate, vheight):
 
 def gaussfit(data,err=None,params=[],autoderiv=1,return_all=0,circle=0,rotate=1,vheight=1):
     """
-    Gaussian fitter with the ability to fit a variety of different forms of 2-dimensional gaussian.
+    Gaussian fitter with the ability to fit a variety of different forms of 2-dimensional Gaussian.
     
     Input Parameters:
         data - 2-dimensional data array
@@ -109,12 +109,12 @@ def gaussfit(data,err=None,params=[],autoderiv=1,return_all=0,circle=0,rotate=1,
             if not input, these will be determined from the moments of the system, 
             assuming no rotation
         autoderiv=1 - use the autoderiv provided in the lmder.f function (the alternative
-            is to us an analytic derivative with lmdif.f: this method is less robust)
+            is to use an analytic derivative with lmdif.f: this method is less robust)
         return_all=0 - Default is to return only the Gaussian parameters.  See below for
             detail on output
-        circle=0 - default is an elliptical gaussian (different x, y widths), but can reduce
-            the input by one parameter if it's a circular gaussian
-        rotate=1 - default allows rotation of the gaussian ellipse.  Can remove last parameter
+        circle=0 - default is an elliptical Gaussian (different x, y widths), but can reduce
+            the input by one parameter if it's a circular Gaussian
+        rotate=1 - default allows rotation of the Gaussian ellipse.  Can remove last parameter
             by setting rotate=0
         vheight=1 - default allows a variable height-above-zero, i.e. an additive constant
             for the Gaussian function.  Can remove first parameter by setting this to 0

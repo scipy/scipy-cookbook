@@ -105,7 +105,7 @@ Other examples
 Scientific Scripts
 ===================================
 * [[Cookbook/Theoretical_Ecology|Theoretical Ecology]]
-* [[Cookbook/SchrodingerFDTD|Schrödinger's equation]]: a 1-d FDTD solver that animates the time evolution of a gaussian wave packet interacting with simple potentials.
+* [[Cookbook/SchrodingerFDTD|Schrödinger's equation]]: a 1-d FDTD solver that animates the time evolution of a Gaussian wave packet interacting with simple potentials.
 
 Input & Output
 ==============
